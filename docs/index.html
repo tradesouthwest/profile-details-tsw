@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Profile Details TSW Plugin Instructions and Help Documentation</title>
+<style id="onpage-pdtsw" type="text/css">
+html {box-sizing: border-box;}.clearfix:before, .clearfix:after {content: "";
+display: table;clear: both;}article, aside, details, figcaption, figure, footer, header, 
+main, menu, nav, section {display: block;}
+.tswclearfix:before,
+.tswclearfix:after {
+	display: table;
+	content: " ";
+}
+
+.tswclearfix:after {
+	clear: both;
+}
+body {box-sizing: inherit; width: 98%; overflow-x: hidden;
+font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;font-weight: normal;
+margin: 0 auto; padding: 0;background: #e9e9e9;font-size:16px;}
+header h3{padding-left: .8em;margin-top: .67em;}
+footer ul{list-style:none;position:relative;margin: 0;}
+footer ul li{display:inline-block;height: 2em;background: #f0f0f0;position: relative;
+margin-bottom: 0;}h1, h2, h3, h4{margin: 2px 0 1px 0;padding-bottom: 0;
+padding-top: 15px;font-weight: bolder;}h1{color: #646464}h1, h2, h3{color:darkcyan;}h2{margin-left: 1em;}
+.container{width: 98.8992%;margin:0 auto;display:block;height:100%;padding-right:20px;}
+.container.full{width:100%;background:#fafafa;}
+table{table-layout:fixed;width:100%;border-spacing:1px;margin-top: .444em;}
+tr{background:#f8f8f8;}
+td {padding-left:12px;}
+section{padding-left: 15px;padding-right:15px;}
+strong{color: #192}
+.strong{font-weight: bold;} h4{text-decoration:underline;}
+em{color: #078}
+.intro{color: #356;}
+.brk{color:#eee;}
+.maroon{color: maroon;}
+.left-sidebar{background-color: #f2f5f6;}
+.main-header{ width: 100%; padding: 0 15px; margin-top: -1em; background: #f4f8dc; 
+position: fixed; left: 0;z-index: 1}
+#main{margin-top: 3em;}
+.centered{ margin: 0 auto; }
+details code{
+  background: #fefefe; 
+  color: green;
+  font-size: 93.8%;
+padding-left: 5px;
+padding-right: 5px;
+}
+details summary { 
+  cursor: pointer;
+}
+details summary:before,
+span.instruct:before {
+  content: "> ";
+  position: relative;
+  font-size: inherit;
+  color: #666;
+  background: #f4f8dc;
+  border-radius: 50%;
+  padding-left: 6px;
+  box-shadow: 0 0 1px 1px #ccc;
+  margin-right: .3888rem;
+}
+details[open] p {
+display: inline;
+background: #d6fcfe;
+padding: 3px;
+line-height: 1.58;
+max-width:98.8992%;
+white-space: normal;
+}
+details img{
+display: block;
+max-height: 260px;
+}
+.container.full, .left-sidebar, .main{
+position: relative; float: left;
+}
+.ml-lg{margin-left: 1.3444em;}
+@media screen and (min-width:980px){
+body{line-height: 1.48;}
+.left-sidebar{position:fixed;float: left;width: 21%;height: 100%; background: #f4f8dc; 
+overflow-y: scroll;}
+.main{width: 78%;height: 100%;float:right;}
+.main:after{content: "";clear: left;width: 100%;display:table;height:1px;}
+.container.full, .main{float:right}}
+</style>
+</head>
+<body>
+
+    <header class="main-header">
+
+    <h1>Profile Details TSW Plugin Support Documentation</h1>
+
+    </header><div class="clearfix"></div>
+    
+    <div id="main" class="container full">
+    <aside class="left-sidebar">
+        <figure><a href="index.html"><img class="centered" src="badge160x160green.png" alt="logo" height="50"/></a></figure>
+        <h3 class="ml-lg">Setup and Instructions</h3>
+        <nav class="nav"><ul>
+        <li><a href="#h1" title="objective of plugin">Primary Objective</a></li>
+        <li><a href="#ha" title="objective of plugin">Plugin Settings</a>
+            <ul>
+            <li><a href="#h2" title="text fields tab">Text Fields Tab</a></li>
+            <li><a href="#h3" title="text field options">Page View Options</a></li>
+            <li><a href="#h4" title="advanced tab">Help Tab</a></li>
+            
+            </ul></li>
+        <li><a href="#faq" title="advanced tab">F.A.Q.</a></li>
+        <li><a href="#h5" title="advanced options">Advanced Functionality</a></li>
+        </ul>
+        </nav>
+    
+    </aside><div class="clearfix"></div>
+
+    <div id="content" class="main">
+    <header><h3>Profile Details TSW Plugin Outline</h3>
+    <p><span class="instruct"><small>tap arrow for more info</small></span></p>
+    </header>   
+    <section class="container">
+        <h4 id="h1">Primary Objective</h4>
+        <table><tbody>
+        <tr><td class="intro">Creates easy to view user profile details, in various views. Provides a visual map of all users registered to a site. 
+        Allows each title of each publicly displayed user field to be changed in admin panel to match the website objectives. 
+        Uses default WP fields such as avatar, nice_name, website, registered date, email as well as several additional custom fields 
+        that are created by admin. Custom categories or apportioned objectives for users profile details can also be added.</td></tr>
+        <tr><td class="brk"></td></tr>
+        <tr><td><span class="strong">User Taxonomy profile-details, </span>provides unlimited categories to be added to user profiles.</td></tr>
+        <tr><td>
+        <details><summary>Categories can have any name to relate to the purpose of your website usage.</summary>
+            <p>You can find the Category assignment page under <code>Users > Profile Categories,</code> in the admin menu. This is where you may add or edit categories for Profile Details. Every user will see the choices of categories to select from, in their user profile page. You may also hide these category choices form the users so that only admin or custom level user can make the choices to assign to each user. </p>
+            <img src="imgs/pdtsw-cats.png" alt="cats"/></details></td></tr>
+        <tr><td id="" class="brk">_</td></tr>
+        <tr><td class="strong">Two Public Views as Grid and Table Views</td></tr>
+        <tr><td>
+        <details><summary>Grid View is an inline list of the user profiles. There are seven rows of data in each grid. The grids are basically boxes which can be set to three boxes per row or two per row. </summary>
+            <p>This should be the view you use for showing the users' information to the public. It has less information about the use which may be sensitive, such as user login name and last name, which otherwise can be seen in the table view.</p>
+            <img src="imgs/pdtsw-grid.png" alt="grid"/>
+        </details></td></tr>
+        <tr><td>
+        <details><summary>Table view can be private or public. Choice can be preset by admin settings.
+        </summary><p>This table view could be set to not show on the front end of the website by going into <code>Settings > Profile Details TSW</code> and check the box under <code>Page Views tab > Make TABLE view Private</code>. This will hide the table view form everyone except Administrators and the custom role that is included with this plugin. (see <b><u>Custom Role Name</u></b> below.) <small style="color: red;">Remember that the Administrator will still be shown in the Table View. Table View shows ALL users.</small></p>
+        <img src="imgs/pdtsw-table.png" alt="table view"/></details> </td></tr>
+        
+        <tr><td class="brk">_</td></tr>
+        <tr><td class="strong">Public Profile for Users</td></tr>
+        <tr><td>
+        <details><summary>Limit meta to show in personal profiles.
+        </summary><p>Option under Page Views tab <code>Show Extended Info</code> Can be checked  to show extended three fields on individual public profile. These extended fields are Company, Group, Location. These field names are not changeable from admin panel. You must edit the template or use translation methods to change these.</p>
+        <img src="imgs/pdtsw-ext.png" alt="extended fields"/></details></td></tr>
+        <tr><td>
+        <details><summary>Default WP User meta data includes: 'ID', 'display_name', 'user_login', 'user_nicename', 'user_email', 'user_url', 'user_registered'
+        </summary><p>Most all of the information on a user that WordPress (or ClassicPress) uses will be utilized in this plugin. The user login name is part of this information and this is why we suggest to NOT SHOW the Table View to the public. Giving out user login names is fifty percent of what a hacker needs to get into the admin side of your site. We did include a CSS class name of `maybehidden` to wrap thelogin name with. You may add <code>.maybehidden{display: none}</code> to your Customizer Additional CSS. <small>Remember that the Administrator will still be shown in the Table View. Table View shows ALL users.</small></p></details></td></tr>
+        <tr><td>
+        <details><summary>Seven specific rows of information can be assigned to each user. Every row can be named as you wish.
+        </summary><p>Under the <code>Text Fields tab</code> you may assign a title heading for each field. These are the fields which show on the public facing side of the Grid view and at the top of the table in the Table view. You can leave the first field title blank since it is the Avatar field, but if you do add an Avatar title it will only show on the Table view.</p>
+        <img src="imgs/pdtsw-textfieldstab.png" alt="fields"/></details></td></tr>
+        <tr><td>
+        <details><summary>Email only shown on public page if Admin selects to show. Also option for individual users to hide or show their email.</summary>
+        <p>Checking box <code>Make Contact Private</code> removes the email from the front end public view altogether. No one will see the email in the Grid view if this is checked.</p>
+        <img src="imgs/pdtsw-emailcheck.png" alt="email check"/></details></td></tr>
+        <tr><td>
+        <details><summary>Social links can be named anything and can be used as other types of links. Could be internal links or research links.
+        </summary><p>You can select how and where to show the social links by checking the best combination of choices that are best for your site experience. The three combinations of show/not-show are in the <code>Text Fields tab</code> at the bottom. <code>Display Social</code>, <code>Social Link Action</code> and <code>Remove Socail Links</code>. There are further instructions written next to each field.</p>
+        <img src="imgs/pdtsw-emailcheck.png" alt="email check"/></details></td></tr>
+        <tr><td><h4>Getting Started</h4></td></tr>
+        <tr><td class="strong">Instructions to help setup Profile Details TSW plugin.</td></tr>
+        <tr><td>
+        <details><summary>This section describes how to setup the plugin and get it working.
+        </summary><p>To begin, there must be individual pages created in the page editor to be appropriated for each shortcode. Each shortcode displays particular page VIEWS. <em>See the list below for the page views and what shortcode to add to each page.</em> You may use as many or as few pages with the user profile details displayed on the pages according to how you feel the website should represent the users on you site. If the site will only be used to show a Table view for the Administrators then you can use only the <code>profile_details_table</code> shortcode to place inside the page you will use to show the Table view. You may also consider using a page that is PRIVATE or requires login to only show views to logged in users as well.</p>
+
+        </details></td></tr>
+        <tr><td>
+<pre>
+1. Create pages with appropriate names and Add Shortcodes to Pages.
+
+    To display GRID view:             [profile_details_grid]
+    To display TABLE view:            [profile_details_table]
+    To display individual's PROFILES: [profile_details_profile]
+    To display CATEGORY view:         [profile_details_category] 
+
+2. Optional, add CATEGORY shortcode to a widget to display categories as a list.
+
+3. Go through settings and add field names and page view preferrences.</pre></td></tr>
+        </tbody></table>    
+    </section>
+
+    <header id="ha"><h3>Profile Details TSW Plugin Settings</h3></header>   
+    <section>
+        <h4 id="h2">Text Fields Tab</h4>
+        <p>Add custom name to each titles in the page views. Leave blank for none.</p>
+        <table><tbody>
+        
+        <tr><td class="strong">Row 1 (First Title on Public Pages and Table Views)</td></tr>
+        <tr><td> Text for first row. Can be left blank in most cases. This is the column that display the user avatar/gravatar.<span class="strong">**</span></td></tr>
+        <tr><td class="strong">Row 2 Title</td></tr>
+        <tr><td>Text for second row. Person/Member maybe</td></tr>
+        <tr><td class="strong">Row 3</td></tr>
+        <tr><td>Text for third row. Details/Objective maybe</td></tr>
+        <tr><td class="strong">Row 4</td></tr>
+        <tr><td>Text for fifth row. Bio/Further maybe</td></tr>
+        <tr><td class="strong">Row 5</td></tr>
+        <tr><td>Text for fifth row. Website/Forms maybe</td></tr>
+        <tr><td class="strong">Row 6</td></tr>
+        <tr><td>Text for sixth row. Joined On maybe (Date register defaults)</td></tr>
+        <tr><td class="strong">Row 7</td></tr>
+        <tr><td>Text for seventh row. Contact/Internal Email maybe. This field has additional controls to it. See Make Contact Private and Select Contact to Display.</td></tr>
+        <tr><td class="strong"><h4>Custom Role Name</h4></td></tr>
+        <tr><td>Name of custom role to add. Supervisor/Mediator maybe (Leave blank to not use custom role.)</td></tr>
+        <tr><td class="strong"><h4>Make Contact Private</h4></td></tr>
+        <tr><td>Check box to NOT show Email field.</td></tr>
+        <tr><td class="strong">Select Contact to Display</td></tr>
+        <tr><td>If Contact shown, select what to display. (Email on hover; Email shown-not recommended. Scrapers and spammers can copy email.; Display First Name as contact method; Display nothing at all.</td></tr>
+        <tr><td class="strong" id="txtF"><h4>Display Social [checkbox]</h4></td></tr>
+        <tr><td id="sO">Check box to show social links in public profiles</td></tr>
+        <tr><td class="strong">Social Link Action</td></tr>
+        <tr><td>Check box to make social links active/clickable on public side. Includes grid view and individual user pages.</td></tr>
+        <tr><td class="strong">Remove Added Social Links [checkbox]</td></tr>
+        <tr><td>Check box to remove social urls from User Panel and public side grid display.</td></tr>
+         
+        </tbody></table>
+    </section>
+
+    <section>
+        <h4 id="h3">Page Views Tab</h4>
+        <p>Advanced setting for content displayed.</p>
+        <table> <tbody>
+        <tr><td>These pages must be set here so that internal forms will work correctly.
+         Note: Several pages need to be set in this section in order for the plugin forms to know where to resolve the form submission to. It is required that you create the pages, first, and then add the following shortcodes to those pages<span class="strong">*</span>.</td></tr>
+<tr><td class="strong">Select Page with user PROFILE Shortcode</td></tr>
+        <tr><td>page with shortcode: [profile_details_profile] </td></tr>
+        <tr><td class="strong">Page with GRID view Shortcode</td></tr>
+        <tr><td>shortcode: [profile_details_grid]</td></tr>
+        <tr><td class="strong">Page with TABLE view Shortcode</td></tr>
+        <tr><td>shortcode: [profile_details_table]</td></tr>
+        <tr><td class="strong">Page with CATEGORY view Shortcode</td></tr>
+        <tr><td>shortcode: [profile_details_category]</td></tr>
+        <tr><td></td></tr>
+        <tr><td class="strong"><h4>Make TABLE view Private</h4></td></tr>
+        <tr><td>Check box to show person table ONLY to Administrators and Editors.</td></tr>
+        <tr><td class="strong">Pagination</td></tr>
+        <tr><td>How many profiles to show per page. This is not the same as the number of Posts WordPress will showon your blog page.</td></tr>
+        <tr><td class="strong">Show Extended Info</td></tr>
+        <tr><td>Check box to show extended three fields on individual public profile. Those three fields are Company, Group and Location. There is also a setting in the user profile admin-side to allow user to select whether or not they want to show the Email field on their profiles.</td></tr>
+        <tr><td class="strong">Only show these roles</td></tr>
+        <tr><td>Select roles to show on front end. Hold CTRL to select multiple. Any role that is not selected will not be shown on the public views of your site.</td></tr>
+        <tr><td class="strong">Text in View Link</td></tr>
+        <tr><td>Wording inside of link of author grid header.</td></tr>
+        <tr><td class="strong">Background Color in Grid Heading</td></tr>
+        <tr><td>Set color for the background in grid view headers. HTML hex (#fafafa) Include the hash sign (#). You may use color names as long as they are valid. Learn more about Hex colors at: <a href="https://www.w3schools.com/colors/colors_hexadecimal.asp" title="html colors">https://www.w3schools.com/colors/colors_hexadecimal</a></td></tr>
+        <tr><td class="strong">Title Color in Grid Heading</td></tr>
+        <tr><td>Set color for the title (H6) of each row. </td></tr>
+        <tr><td class="strong">Height Adjust Grids</td></tr>
+        <tr><td>Adjustment to make grids equal heights in pixels (exclude px, just numbers). Height will vary depending on theme used and amount of content. This setting helps offset the height of the panels in the Public View Grids.</td></tr>
+        <tr><td class="strong">Width Adjust Grids at 780px wide</td></tr>
+        <tr><td>(w/out %sign) Plugin will add the percent sign, unlike the colors adding the hash sign above. This is intentional to provide best responsive layouts.</td></tr>
+        <tr><td class="strong">Content Before Table</td></tr>
+        <tr><td>Text area for content that appears on top of Grid and all other Views..</td></tr>
+        <tr><td class="strong">Content After Table</td></tr>
+        <tr><td>Text area for content that appears below of Grid and all other Views.</td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        </tbody></table>
+    </section>
+    <section>
+        <h4 id="h4">Help Tab</h4>
+        <table> <tbody>
+        <tr><td class="strong">Documentation</td></tr>
+        <tr><td>This document.</td></tr>
+        <tr><td class="strong">Turn on Debug Mode</td></tr>
+        <tr><td>Can be checked to display user roles on only the table view. Mostly used to be sure your roles are working correctly. You should not need to check this unless there are some issues that you have contacted the support team about.</td></tr>
+        <tr><td class="strong">Add or Change Categories</td></tr>
+        <tr><td>Just an easy way to get to the plugin custom Categories used for the Profile Details User editor. The default link to get to is under Users > Profile Categories.</td></tr>
+        <tr><td class="strong">Custom Role Reset</td></tr>
+        <tr><td>This may be ignored unless our support team needs you to reset this (to 0).</td></tr>
+        <tr><td class="strong"></td></tr>    
+        </tbody></table>
+    </section>
+<section>
+<header id="hb"><h3>Questions and Tips</h3></header>   
+        <h4 id="faq">Frequently Asked Questions</h4>
+        <table> <tbody>
+        <tr><td class="strong maroon"><span class="strong">*</span>What is a shortcode?</td></tr>
+        <tr><td>A shortcode is a word or phrase enclosed in brackets which display pre-coded functions on a page. To learn more about shortcodes visit: <a href="https://wordpress.com/support/shortcodes/" title="what is wordpress shortcode">https://wordpress.com/support/shortcodes/</a></td></tr>
+         <tr><td class="strong maroon">Why is there not a way to add custom avatar to user images?</td></tr>
+        <tr><td><span class="strong">**</span>We have discovered that adding new types of images to a user profile is a very personal choice. Since there are so many ways to do this and so many types of images on can use; we will leave the desicion up to you, the administrator, which can be achieved by using one of many WordPress User Avatar plugins that are available from several sources and are more designed to cover all the possible scenarios of user image usage.</td></tr>
+        <tr><td class="strong maroon"><h4>Where do I find the Settings page for this plugin?</h4></td></tr>
+        <tr><td class="intro">In your administrator panel, once you have logged-in, go to the menu item on the sidebar menu Settings. Hover over Settings and you will see several choices. Choose Profile Details TSW.</td></tr>
+         
+        <tr><td class="strong maroon">Why is there not a field for phone numbers?</td></tr>
+        <tr><td>It is never recommeneded to show phone numbers or direct contact lines for contacts on a website. Public posting of phone numbers is an invitation for identity theft. If you must add phone numbers to the profiles of this plugin, try adding the numbers inside or after one of the three extended fields (Show Extended Info option). This way you can hide them if you decide you are getting too many spam calls. <code>Check box to show extended three fields on individual public profile.</code> </td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        <tr><td class="strong"></td></tr>
+        <tr><td></td></tr>
+        </tbody></table>
+    </section>
+
+    <section>
+        <h4 id="h5">Helper Functions</h4>
+        <table><thead><tr><th>Function</th><th>Purpose</th></tr></thead><tbody>
+        <tr><td id="txtF">Found in public/profile-details-public-helpers</td><td></td></tr>
+        
+        <tr><td id="h1">profile_details_tsw_contact_body_class($classes) </td>
+            <td>Add body_class if contact details are hidden on public grid. @uses profile_details_tsw_contact_privi() @returns Boolean</td></tr>
+        <tr><td>pdtswget_author_meta($meta_key, $profile_id)</td><td>
+        Get author meta for single profile page. @param <em>string</em> $meta_key   Meta key. @param <em>string</em> $profile_id ID of user.</td></tr>
+        
+        <tr><td id="chkPriv">></td><td></td></tr>
+        <tr><td>profile_details_tsw_get_tableview_page()</td><td>Get option url. Page that is saved as Select Page with Tableview Shortcode.</td></tr>
+        <tr><td>profile_details_tsw_table_privi, profile_details_tsw_contact_privi</td>
+        <td>Check if Not viewable to public @return Boolean</td></tr>
+        <tr><td id="selCon">></td><td></td></tr>
+        <tr><td>profile_details_tsw_get_author_page()</td><td></td></tr>
+        <tr><td>profile_details_tsw_contact_selected</td><td></td></tr>
+        
+        <tr><td>profile_details_tsw_get_category_page()</td><td></td></tr>
+        <tr><td id="">></td><td></td></tr>
+        <tr><td>profile_details_tsw_thead_1, profile_details_tsw_thead_2, profile_details_tsw_thead_3, profile_details_tsw_thead_4, profile_details_tsw_thead_5</td>
+        <td></td></tr>
+        <tr><td id="hf">profile_details_tsw_admin_assigns()</td><td></td></tr>
+        <tr><td>profile_details_tsw_table_private()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_is_site_admin()</td><td></td></tr>
+        <tr><td>profile_details_tsw_social_urls()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_social_anchor()</td><td></td></tr>
+        <tr><td>profile_details_tsw_social_privi()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_contact_privi()</td><td></td></tr>
+        <tr><td>profile_details_tsw_gridhead()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_viewlink()</td><td></td></tr>
+        <tr><td>profile_details_tsw_contact_selected()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_contact_html()</td><td></td></tr>
+        <tr><td>profile_details_tsw_contact_display()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tswget_select_roles()</td><td></td></tr>
+        <tr><td>profile_details_gettsw_pagination()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_before_block()</td><td></td></tr>
+        <tr><td>profile_details_tsw_after_block()</td><td></td></tr>
+        <tr><td id="hf">pdtswget_editfront_author($current_user_id)</td><td></td></tr>
+        <tr><td>profile_details_tsw_allow_avatar()</td><td></td></tr>
+        <tr><td id="hf">profile_details_tsw_extend_info()</td><td></td></tr>
+        <tr><td id="hf">pdtsw_user_roles_by_id( $id )</td><td></td></tr>
+        <tr><td id="hf">pdtswset_debug_mode()</td><td></td></tr>
+        <tr><td id="hf"></td><td></td></tr>
+        
+        </tbody></table>
+                
+    </section>
+
+    <section>
+        <h4 id="dev">Action Hooks</h4>
+        <table> <tbody>
+        <tr><td id="txtBA">Developer Helpers</td></tr>
+            <tr><td>Functions in profile-details-public-functions </td></tr>
+            <tr><td><pre>add_filter( 'user_contactmethods', 'profile_details_tsw_social_author_profile', 10, 1); </pre></td></tr>
+            <tr><td id="selRoles">></td></tr>
+            <tr><td><pre>add_action( 'edit_user_profile', 'profile_details_tsw_extra_profile_info' ); </pre> and show_user... </td></tr>
+            <tr><td><pre>add_action( 'personal_options_update', 'profile_details_tsw_save_profile_info' );
+add_action( 'edit_user_profile_update', 'profile_details_tsw_save_profile_info' );</pre></td></tr>
+            <tr><td><pre>
+/* Add section to the edit user page in the admin to select profile_detail. */
+add_action( 'show_user_profile', 'profile_details_tsw_edit_user_profile_details_section' );
+add_action( 'edit_user_profile', 'profile_details_tsw_edit_user_profile_details_section' );
+</pre></td></tr>
+            <tr><td id="selRoles">></td></tr>
+            <tr><td><pre>
+/* Update the profile_details terms when the edit user page is updated. */
+add_action( 'personal_options_update', 'profile_details_tsw_save_user_profile_details_terms' );
+add_action( 'edit_user_profile_update', 'profile_details_tsw_save_user_profile_details_terms' );
+</pre></td></tr>
+            <tr><td>Inline style only display on proper page. <pre>add_action('wp_head', 'profile_details_tsw_inline_page_styles'); </pre></td></tr>
+            
+    </tbody></table>
+    </section>
+
+    <section>
+    
+    </section>
+    
+    </div>
+</div><div class="clearfix"></div>
+
+<footer class="container full">
+<ul><li><a href="#" title="go">Top</a></li></ul>
+</footer>
+</body></html>

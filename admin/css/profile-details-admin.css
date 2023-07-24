@@ -1,0 +1,31 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ *//*
+#profile_details_tsw .form-table tr:nth-of-type(9){border-top: thin solid #fff} 
+#profile_details_tsw .form-table tr:nth-of-type(11){border-bottom: thin solid #fff} 
+#profile_details_tsw .form-table tr:nth-of-type(8),
+#profile_details_tsw .form-table tr:nth-of-type(9), 
+#profile_details_tsw .form-table tr:last-of-type {border-bottom: 2px solid #fcfcfc;}*/
+#profile_details_tsw .form-table tr:nth-child(odd){background:#f0f8f9}
+#profile_details_tsw .form-table tr th[scope="row"]{padding-left: 10px;}
+div#profile_details_tsw.wrap form div.settings-container 
+table.form-table tbody tr td label span.description,
+div#profile_details_tsw.wrap form div.settings-container table.form-table tbody tr td span.description
+{ border-bottom: 1px dotted #aa0; cursor: default }
+.pdtsw-push{margin-right:.444em;}
+.highlighted:before, .highlighted:after{
+content: " ";
+display:block;
+border: 1px solid #00aa55;
+background: #e5eeef;
+}
+.pdtsw-help .unordered-list{list-style:none; margin: 1em 0;position:relative;}
+.pdtsw-help .unordered-list li{margin-left: 1em;}
+.pdtsw-help li span{min-width:225px; text-align: right; display:inline-block}
+.rtl .unordered-list li{margin-right: 1em;}
+.pdtsw-radios input[type="radio"]{margin-right: -.128em;}
+#profile-details-addedinfo,
+#profile-details-type{border-bottom:4px solid #fafafa;
+padding-top: 1px;margin-top:1.2em;}
+#profile-details-addedinfo{border-top:4px solid #fafafa;}
