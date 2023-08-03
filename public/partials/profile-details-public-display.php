@@ -25,13 +25,22 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 function profile_details_tsw_tableform_dropdown()
 {
 
-    $html = '';
+    $html = ''; $sort_by = 'user_registered'; $order_is = 'ASC';
+
+    if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ));
+        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' ) ) { 
+            exit("No funny business please"); 
+        }
 
     $sort_by  = ( !isset( $_POST['pdtsw_sortform_dropdown'] ) ) 
               ? 'user_registered' 
               : sanitize_text_field( wp_unslash( $_POST['pdtsw_sortform_dropdown'] )); 
-    $order_is = ( !isset( $_POST['pdtsw_sortform_order'] ) ) ? 'ASC' 
+    $order_is = ( !isset( $_POST['pdtsw_sortform_order'] ) ) 
+              ? 'ASC' 
               : sanitize_text_field( wp_unslash( $_POST['pdtsw_sortform_order'] )); 
+    endif;
+
     $categor_url = profile_details_tsw_get_category_page();        
     $argz = array(
         'user_registered' => __('Registered Date', 'profile-details-tsw' ),
@@ -515,8 +524,8 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
 
                 <div class="profiletsw-dscr pdtsw-eqh">
                     <h6>' . esc_attr( profile_details_tsw_thead(absint(4) ) ) . '</h6>';
-                    $descript = wpautop( get_the_author_meta( 'description', $user->ID ) );
-                echo stripslashes( substr( $descript, 0, 115 ) . '...' ); 
+                    $descript = wp_kses_post( get_the_author_meta( 'description', $user->ID ) );
+                echo esc_html( substr( $descript, 0, 115 ) . '...' ); 
                 echo 
                 '</div>
                 <div class="pdtsw-url-grid pdtsw-eqh">
@@ -527,7 +536,7 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
                 </div>
                 <div class="pdtsw-regdate-grid pdtsw-eqh">
                     <h6>' . esc_attr( profile_details_tsw_thead( absint(6) ) ) . '</h6>
-                    <p>' . mb_substr( $user->user_registered, 0, -8 ) . '</p>
+                    <p>' . esc_html( mb_substr( $user->user_registered, 0, -8 ) ) . '</p>
                 </div>';
                 
                 if  ( ! $contact_privi ): 

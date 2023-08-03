@@ -27,7 +27,7 @@ add_action( 'pdtsw_debug_profile_url', 'pdtsw_display_correct_profile_url');
 function pdtsw_display_correct_profile_url(){
     if ( get_query_var( 'profile_id' ) ){ 
 
-        echo 'profileIdHash: ' . get_query_var( 'profile_id' );
+        echo 'profileIdHash: ' . esc_attr( get_query_var( 'profile_id' ) );
         
     }
     
@@ -182,14 +182,13 @@ function  profile_details_tsw_get_category_page()
  */
 function profile_details_tsw_thead($opt)
 {
-    $opt     = ( '' != $opt ) ? $opt : '';
+    $opt     = ( '' != $opt ) ? $opt : null;
     $options = get_option('profile_details_tsw');
 
     $option  = $options["profile_details_tsw_thead_{$opt}"];
     $rtrn    = ( '' != $option ) ? $option : '';
 
         return $rtrn;
-        $opt = null;
 } 
 
 /**

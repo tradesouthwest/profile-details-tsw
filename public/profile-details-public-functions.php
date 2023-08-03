@@ -58,22 +58,28 @@ function profile_details_tsw_social_author_profile( $contactmethods )
 	    return $contactmethods;
 } 
 
-// PH2
+/** PH2
+ * Display profile data
+ * @since 1.0.0
+ */
 function profile_details_tsw_extra_profile_info( $user ) {
 	$pdtsw = profile_details_tsw_extend_info();
-	if ( $pdtsw === false ) {
+	if ( $pdtsw === false ) 
+	{
 	remove_action( 'show_user_profile', 'profile_details_tsw_extra_profile_info' );
     remove_action( 'edit_user_profile', 'profile_details_tsw_extra_profile_info' );
 	return false;
-	} else {
-	// name assigned in admin
-	$mediator = (''!= ( get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'])) 
-	? get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'] : '';
-	?>
-    <div id="profile-details-addedinfo">
-	<h3><?php esc_html_e( 'Additional Profile Info', 'profile-details-tsw' ); ?></h3>
+	} else 
+	    {
+		// name assigned in admin
+		$mediator = (''!= ( get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'])) 
+		? get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'] : '';
+		?>
+		<div id="profile-details-addedinfo">
+		<h3><?php esc_html_e( 'Additional Profile Info', 'profile-details-tsw' ); ?></h3>
 
-	<table class="form-table">
+		<table class="form-table">
+			<tbody>
         <tr>
 			<th><label for="profile_details_tsw_company"><?php esc_html_e( 'Company', 'profile-details-tsw' ); ?></label></th>
 			<td><input type="text" name="profile_details_tsw_company" 
@@ -98,41 +104,71 @@ function profile_details_tsw_extra_profile_info( $user ) {
 		<tr>
 			<th><label for="profile_details_tsw_pdtsw_mediator">
 			<?php esc_html_e( 'Additional Capabilities', 'profile-details-tsw' ); ?></label></th>
-			<td><?php $author_caps = profile_details_tsw_get_user_capabilities( $user->ID );
+			<td>
+			<?php 
+			$author_caps = profile_details_tsw_get_user_capabilities( $user->ID );
 			if ( !empty ( $author_caps ) && in_array( 'pdtsw_mediator', $author_caps ) ) {   
 				echo esc_html( $mediator ); }
 				else {
 				echo esc_html__('None assigned at this time.','profile-details-tsw');
-				} ?>
+				} 
+			?>
+			<input type="hidden" 
+                value="<?php echo esc_attr( wp_create_nonce('pdtsw_extra_profile_nonce')); ?>" 
+                name="pdtsw_extra_profile_nonce">
 			</td>
 		</tr>
-		<?php // Only show this box if management is logged in.
+		<?php 
+		/* Only show this box if management is logged in. */
 		if ( current_user_can( 'manage_options' ) ): ?>
 		<tr>
-			<th><label for="profile_details_tsw_adminnotes"><?php _e( 'Internal Notes', 'profile-details-tsw' ); ?></label></th>
+			<th><label for="profile_details_tsw_adminnotes"><?php esc_html_e( 'Internal Notes', 'profile-details-tsw' ); ?></label></th>
 			<td class="pdtsw-adminnotes">
-<textarea id="profile_details_tsw_adminnotes" name="profile_details_tsw_adminnotes" cols=30 rows=5><?php echo trim( get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID )); ?></textarea>
+    <textarea id="profile_details_tsw_adminnotes" name="profile_details_tsw_adminnotes" cols=30 rows=5><?php echo wp_kses_post( 
+		get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID ) ); ?></textarea>
 			</td>
 		</tr>
-		<?php endif; ?>
-
+		<?php 
+	    endif; ?>
+		</tbody>
 	</table>
     </div>
-	<?php } 
+	<?php 
+	} 
 }
 
-// PH3
+/** PH3
+ * Save profile data
+ * @since 1.0.0
+ */
 function profile_details_tsw_save_profile_info( $user_id ) {
 
-	if ( !current_user_can( 'edit_user', $user_id ) )
+	if( !current_user_can( 'edit_user', absint( $user_id ) ) )
 		return false;
+	if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+		$submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_extra_profile_nonce'] ));
+		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' ) ) { 
+			exit("No funny business please"); 
+		}
+	endif;
 
-	update_user_meta( $user_id, 'profile_details_tsw_bio', $_POST['profile_details_tsw_bio'] );
-	update_user_meta( $user_id, 'profile_details_tsw_company', $_POST['profile_details_tsw_company'] );
-    update_user_meta( $user_id, 'profile_details_tsw_position', $_POST['profile_details_tsw_position'] );
-	update_user_meta( $user_id, 'profile_details_tsw_location', $_POST['profile_details_tsw_location'] );
-	update_user_meta( $user_id, 'profile_details_tsw_show_email', $_POST['profile_details_tsw_show_email'] );
-	update_user_meta( $user_id, 'profile_details_tsw_adminnotes', $_POST['profile_details_tsw_adminnotes'] );
+	update_user_meta( $user_id, 'profile_details_tsw_bio', 
+	    sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_bio'] ) ) );
+	
+	update_user_meta( $user_id, 'profile_details_tsw_company', 
+		sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_company'] ) ) );
+    
+	update_user_meta( $user_id, 'profile_details_tsw_position', 
+		sanitize_text_field(wp_unslash( $_POST['profile_details_tsw_position'] ) ) );
+	
+	update_user_meta( $user_id, 'profile_details_tsw_location', 
+		sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_location'] ) ) );
+	
+	update_user_meta( $user_id, 'profile_details_tsw_show_email', 
+		sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_show_email'] ) ) );
+	
+	update_user_meta( $user_id, 'profile_details_tsw_adminnotes', 
+		sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_adminnotes'] ) ) );
 }
 
 /** PH4
@@ -149,32 +185,38 @@ function profile_details_tsw_edit_user_profile_details_section( $user ) {
 	if ( !current_user_can( $tax->cap->assign_terms ) ) return;
     
 	/* Get the terms of the 'profile_detail' taxonomy. */
-	$terms = get_terms( 'profile_details', array( 'hide_empty' => false ) ); ?>
+	$terms = get_terms( 'profile_details', array( 'hide_empty' => false ) ); 
+	?>
+	
 	<div id="profile-details-type">
-	<h2><?php _e( 'Profile Details Type' ); ?></h2>
+	<h2><?php esc_html_e( 'Profile Details Type' ); ?></h2>
 
 	<table class="form-table"><tbody>
 		<tr>
-			<th><label for="profile_details"><?php _e( 'Select profile type', 'profile-details-tsw' ); ?></label></th>
+			<th><label for="profile_details">
+				<?php esc_html_e( 'Select profile type', 'profile-details-tsw' ); ?>
+			</label>
+		    </th>
 			<td class="pdtsw-radios">
 		<?php
-	/* If there are any profile_details terms, loop through them and display radio checkboxes. */
-	if ( !empty( $terms ) ) {
+	    /* If there are any profile_details terms, loop through them and display radio checkboxes. */
+	    if ( !empty( $terms ) ) {
 
-		foreach ( $terms as $term ) { 
-		echo '<input type ="radio" name ="profile_details" 
-		    id ="profile_details-' . esc_attr( $term->slug ) . '" 
-		    value ="' . esc_attr( $term->slug ) . '"' 
-		. checked(true, is_object_in_term($user->ID,"profile_details",$term ),false) .'>
- 		<label class="pdtsw-push" for="profile_details-' . esc_attr( $term->slug ). '">'
-		. $term->name . ' </label> '; 
-		}
+			foreach ( $terms as $term ) { 
+			echo '<input type ="radio" name ="profile_details" 
+				id ="profile_details-' . esc_attr( $term->slug ) . '" 
+				value ="' . esc_attr( $term->slug ) . '"' 
+			. checked(true, is_object_in_term( $user->ID,"profile_details", $term ),false) .'>
+			<label class="pdtsw-push" for="profile_details-' . esc_attr( $term->slug ). '">'
+			. esc_html( $term->name ) . ' </label> '; 
+			}
 	
-	}	/* If there are no profile_details terms, display a message. */
+	    }	
+		/* If there are no profile_details terms, display a message. */
 		else {
 			esc_html_e( 'Profile details unavailable.', 'profile-details-tsw' );
-		}
-			?></td>
+		} ?>
+		    </td>
 		</tr>
 	</tbody></table>
 

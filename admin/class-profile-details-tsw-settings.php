@@ -5,17 +5,15 @@
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class Profile_Details_Tsw_Template_Settings {
-    private $dir;
-    private $file;
+class Profile_Details_Tsw_Template_Settings 
+{
 	private $plugin_name = 'Profile Details TSW';
 	private $plugin_slug = 'profile_details_tsw';
 	private $textdomain  = 'profile-details-tsw';
 	private $options;
 	private $settings;
 
-	public function __construct( $plugin_name, $plugin_slug, $file ) {
-		$this->file        = $file;
+	public function __construct( $plugin_name, $plugin_slug, $textdomain ) {
 		$this->plugin_slug = $plugin_slug;
 		$this->plugin_name = $plugin_name;
 		$this->textdomain  = $textdomain;

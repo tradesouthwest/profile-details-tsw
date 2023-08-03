@@ -77,8 +77,9 @@ function profile_details_tsw_render_author_page($att='', $content=null)
             . esc_html( profile_details_tsw_thead(absint(5)) ) . ':</strong> 
             <a href="' . esc_url( pdtswget_author_meta( 'user_url', absint($profile_id) )).'" 
                 title="' . esc_attr__( 'visit website', 'profile-details-tsw' ) 
-                . ' ' . pdtswget_author_meta( 'user_url', absint($profile_id) ). '" 
-                target="_blank">' . esc_url( pdtswget_author_meta( 'user_url', absint($profile_id) )).'</a></p>    
+                . ' ' . esc_url( pdtswget_author_meta( 'user_url', absint($profile_id) ) ). '" 
+                target="_blank">' 
+                . esc_url( pdtswget_author_meta( 'user_url', absint($profile_id) )).'</a></p>    
         </div>
         
         <div class="pdtsw-contact-row pdtsw_row">';
@@ -134,11 +135,11 @@ function profile_details_tsw_render_author_page($att='', $content=null)
         echo '<div class="pdtsw-slinks">
             <p><strong>'. esc_html__('Media Links', 'profile-details-tsw') .'</strong></p>
             <ul class="pdtsw-social-single">
-            <li>' . pdtswget_author_meta('pdtsw_twitter_profile', absint($profile_id) ) . '</li>
-            <li>' . pdtswget_author_meta('pdtsw_linkedin_profile', absint($profile_id) ) . '</li>
-            <li>' . pdtswget_author_meta('pdtsw_facebook_profile', absint($profile_id) ) . '</li>
-            <li>' . pdtswget_author_meta('pdtsw_google_business', absint($profile_id) ) . '</li>
-            <li>' . pdtswget_author_meta('pdtsw_rss_url', absint($profile_id) ) . '</li>
+            <li>' . esc_url( pdtswget_author_meta('pdtsw_twitter_profile', absint($profile_id) )) . '</li>
+            <li>' . esc_url( pdtswget_author_meta('pdtsw_linkedin_profile', absint($profile_id) )) . '</li>
+            <li>' . esc_url( pdtswget_author_meta('pdtsw_facebook_profile', absint($profile_id) )) . '</li>
+            <li>' . esc_url( pdtswget_author_meta('pdtsw_google_business', absint($profile_id) )) . '</li>
+            <li>' . esc_url( pdtswget_author_meta('pdtsw_rss_url', absint($profile_id) )) . '</li>
             </ul>
             </div>';
         else: 
@@ -147,34 +148,34 @@ function profile_details_tsw_render_author_page($att='', $content=null)
             <ul class="pdtsw-social-single">';
             if('' != pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id ) ) ) { 
             echo
-            '<li><a href="' . pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id ) ) . '" 
+            '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id ) )) . '" 
                 title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id) ) . ' 
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a></li>'; 
             }
             if('' != pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) ) ) { 
             echo
-            '<li><a href="' . pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) ) . '" 
-                title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) ) . '
+            '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) )) . '" 
+                title="" class="blue-anchor">' . esc_url( pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) )) . '
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a> 
             </li>'; 
             }
             if('' != pdtswget_author_meta( 'pdtsw_facebook_profile', absint($profile_id) ) ) { 
             echo
-            '<li><a href="' . pdtswget_author_meta( 'pdtsw_facebook_profile', absint($profile_id) ) . '" 
-                title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_facebook_profile', absint($profile_id) ) . ' 
+            '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_facebook_profile', absint($profile_id) )) . '" 
+                title="" class="blue-anchor">' . esc_url( pdtswget_author_meta( 'pdtsw_facebook_profile', absint($profile_id) )) . ' 
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a> 
             </li>'; }
             if('' != pdtswget_author_meta( 'pdtsw_google_business', absint($profile_id) ) ) { 
             echo
-            '<li><a href="' . pdtswget_author_meta( 'pdtsw_google_business', absint($profile_id) ) . '" 
-                title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_google_business', absint($profile_id) ) . ' 
+            '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_google_business', absint($profile_id) )) . '" 
+                title="" class="blue-anchor">' . esc_url( pdtswget_author_meta( 'pdtsw_google_business', absint($profile_id) )) . ' 
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a> 
             </li>'; 
             }
             if('' != pdtswget_author_meta( 'pdtsw_rss_url', absint($profile_id) ) ) { 
             echo
-            '<li><a href="' . pdtswget_author_meta( 'pdtsw_rss_url', absint($profile_id) ) . '" 
-                title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_rss_url', absint($profile_id) ) . '
+            '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_rss_url', absint($profile_id) )) . '" 
+                title="" class="blue-anchor">' . esc_url( pdtswget_author_meta( 'pdtsw_rss_url', absint($profile_id) )) . '
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a> 
             </li>'; 
             }

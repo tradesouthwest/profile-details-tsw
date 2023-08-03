@@ -9,11 +9,6 @@
 
 function profile_details_tsw_sortform_dropdown_categories()
 {
-    if(isset( $_REQUEST['profile_sortform_catview'] ) ) :  
-    $verify = wp_verify_nonce( $_REQUEST['catsort_nonce'], 
-                                'pdtsw_catcatfrm_nonce'); 
-    if ( !$verify ) { exit("Nonce not found for category"); }
-    endif;
     $mediator     = profile_details_tsw_pdtsw_mediator();
     $user         = wp_get_current_user();
     $allowed_roles = array('editor', 'administrator', $mediator);
@@ -41,7 +36,7 @@ function profile_details_tsw_sortform_dropdown_categories()
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
         action="'.htmlspecialchars( esc_url( 
-            $_SERVER["REQUEST_URI"] ) ).'">'; 
+            wp_unslash( $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
@@ -81,7 +76,7 @@ function profile_details_tsw_sortform_dropdown_categories()
     </tr>
     </tbody></table>';
 
-    echo $html;     
+    echo $html;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     endif;
 }
@@ -145,11 +140,15 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
         </tr>
         </thead>
             <tbody class="pdtsw_sortable">';
-    
+    if(isset( $_REQUEST['profile_sortform_catview'] ) ) :  
+        $verify = wp_verify_nonce( wp_unslash( $_REQUEST['catsort_nonce'] ), 
+                    'pdtsw_catcatfrm_nonce'); 
+        if ( !$verify ) { exit("Nonce not found for category"); }
+    endif;
     $cattosort  = ( isset( $_REQUEST['profile_sortform_catview'] ) && 
                    !empty( $_REQUEST['profile_sortform_catview'] ) ) 
                 ? sanitize_text_field( wp_unslash( $_REQUEST['profile_sortform_catview'] ) )
-                : 'all';
+                : 'none';
     $order_is   = ( isset( $_POST['pdtsw_catsortform_order'] ) ) 
                 ? sanitize_text_field( wp_unslash( $_POST['pdtsw_catsortform_order'] ) ) 
                 : 'ASC';
@@ -163,7 +162,7 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
     $users      = $user_query->results;
     
     echo 
-    '<tr><td colspan="4">'. esc_html($cattosort).'</td><td colspan="3">
+    '<tr><td colspan="4">'. esc_html( $cattosort ) .'</td><td colspan="3">
     </td></tr>';
 
     // User Loop
@@ -195,7 +194,7 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
         <td class="pdtsw-third"><a href="'  . esc_url($user->user_url) . '" 
             title="'  . esc_html($user->user_url) . '" target="_blank">' 
             . esc_html($user->user_url) . '</a></td>
-        <td class="pdtsw-fourth">' . mb_substr($user->user_registered, 0, -8) . '</td>
+        <td class="pdtsw-fourth">' . esc_attr( mb_substr($user->user_registered, 0, -8) ) . '</td>
         <td class="pdtsw-fifth"><span class="profiletsw-priv">'; 
             echo '<a href="" class="' . esc_attr( $hoverclass ) . '" 
             title="'. esc_attr($user->$contact_selctd) .'">'
@@ -224,7 +223,7 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
     
     echo 
     '<tr>
-        <td colspan="4">'. sanitize_text_field($cattosort).'</td>
+        <td colspan="4">'. esc_html( $cattosort ).'</td>
         <td colspan="3"><a href="#content" title="'. esc_attr__('Back to top', 'profile-details-tsw') .'">' 
                            . esc_html__('Back to top', 'profile-details-tsw') .'</a></td>
     </tr></tbody></table>
