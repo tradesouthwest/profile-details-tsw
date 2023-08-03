@@ -4,7 +4,7 @@
  * Description:       Creates easy to view user profile details. Settings and Help under Settings > Profile Details TSW
  * Author:            Tradesouthwest
  * Author URI:        https://tradesouthwest.com/
- * Version:           1.0.4
+ * Version:           1.0.5
  * Requires PHP:      7.2
  * Requires CP:       1.4
  * License:           GPLv2 or later
@@ -13,7 +13,7 @@
  */  
 if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! defined( 'PROFILE_DETAILS_VERSION' ) ) { 
-	    define('PROFILE_DETAILS_VERSION', '1.0.4' ); }
+	    define('PROFILE_DETAILS_VERSION', '1.0.5' ); }
 if ( !defined ( 'PROFILE_DETAILS_TSW_PATH' ) ) { 
 	    define( 'PROFILE_DETAILS_TSW_PATH', plugins_url( '', __FILE__ ) ); }
 /**

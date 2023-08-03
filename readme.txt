@@ -5,7 +5,7 @@ Tags: user, profile, users, profiles, list, user list, login, members, table
 Requires at least: 4.8
 Requires PHP:      7.2
 Requires CP:       1.4
-Stable tag:        1.0.4
+Stable tag:        1.0.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
 Plugin URI:        https://themes.tradesouthwest.com/wordpress/plugins/profile-details-tsw/
@@ -62,6 +62,9 @@ A.: If you know CSS then you can use any CSS editor to add a selctor in your Cus
  * Settings > Permalinks and clicking the Save Changes button 
  * **********************************************************
 == Changelog ==
+1.0.5
+* escaping of strings
+
 1.0.4
 * grid title chngd to grid-titles
 * removed single helper files

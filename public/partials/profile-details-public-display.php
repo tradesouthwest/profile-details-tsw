@@ -4,7 +4,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin Shortcodes.
  *
- * @since      1.0.1
+ * @since      1.0.5
  * @package    Profile_Details
  * @subpackage Profile_Details/public/partials/profile-details-public-display
  * 
@@ -24,12 +24,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 function profile_details_tsw_tableform_dropdown()
 {
+
     $html = '';
-    if( isset( $_REQUEST['pdtsw_sortform_dropdown'] ) ) :  
-        $verify = wp_verify_nonce( 
-        sanitize_key( $_REQUEST['pdtsw_frm_nonce'] ), 'pdtsw_frm_nonce'); 
-        if ( !$verify ) { exit("No funny business please"); }
-    endif;
 
     $sort_by  = ( !isset( $_POST['pdtsw_sortform_dropdown'] ) ) 
               ? 'user_registered' 
@@ -50,11 +46,12 @@ function profile_details_tsw_tableform_dropdown()
     
     ob_start(); 
     echo 
-    '<form id="pdtsw-sortform" method="POST" action="'. esc_url_raw( $_SERVER["REQUEST_URI"] ) .'">
+    '<form id="pdtsw-sortform" method="POST" 
+        action="'. esc_url_raw( wp_unslash( $_SERVER["REQUEST_URI"] ) ) .'">
         <table id="pdtswTableSort" class="profiletsw-sort-table"><tbody>
         <tr>
-        <td><label for="pdtsw-sortform-dropdown"><span>'. __('Sort by ', 'profile-details-tsw');
-    echo' </span> 
+        <td><label for="pdtsw-sortform-dropdown">
+            <span>'. esc_html__('Sort by ', 'profile-details-tsw') . '</span> 
         <select id="pdtsw-sortform-dropdown" name="pdtsw_sortform_dropdown" 
                 class="pdtsw-select" onchange="this.form.submit()">';
     
@@ -77,11 +74,12 @@ function profile_details_tsw_tableform_dropdown()
             . esc_html( profile_details_tsw_thead(absint(3)) ) .'</a></td>
         <td></td>
         </tr></tbody></table>
-        <input type="hidden" value="' . wp_create_nonce('pdtsw_frm_nonce') .'" 
+        <input type="hidden" 
+            value="' . esc_attr( wp_create_nonce('pdtsw_frm_nonce')) .'" 
             name="pdtsw_frm_nonce">
     </form>';
 
-    echo ob_get_clean(); 
+    echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
@@ -126,12 +124,13 @@ function profile_details_tsw_shortcode_table($atts, $content = null)
         <?php 
         /* Get posted sorting filters 
         * ************************** */
-        if ($_SERVER["REQUEST_METHOD"] == "POST"):
-            if (isset( $_REQUEST['pdtsw_frm_nonce'] ) 
-            && !wp_verify_nonce( sanitize_key( $_REQUEST['pdtsw_frm_nonce'] ), 'pdtsw_frm_nonce')) {
-                exit("Please try again.");
-            }
-        endif; 
+        
+    if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ));
+        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' ) ) { 
+            exit("No funny business please"); 
+        }
+    endif;
 
         $order_by = ( isset( $_POST['pdtsw_sortform_dropdown'] ) ) 
                 ? sanitize_text_field( wp_unslash( $_POST['pdtsw_sortform_dropdown']) ) 
@@ -199,17 +198,17 @@ if ( $viewable ):
             <form action="' . esc_url( $profile_url ) .'" method="POST">
                 <input type="hidden" name="profile_id" 
                     value="'. absint($user->ID) .'">
-                <button type="submit" 
-                    id="'. esc_attr( $user->display_name ) .'" 
+                <button id="'. esc_attr( $user->display_name ) .'" 
                     class="tiny-submit" 
+                    type="submit" 
                     title="' . esc_attr( $user->display_name ) . '">
-            <span id="avatar-'. esc_attr( $user->display_name ) .'" 
-                title="'. esc_attr( $user->display_name ) .' '. $user->ID .'">'
-                    . get_avatar( $user->ID, $sz ) . '
-            </span></button>
-            <input type  ="hidden" 
-                value="'. wp_create_nonce( 'pdtsw_author_nonce' ) .'" 
-                name="pdtsw_author_nonce">
+                <span id="avatar-'. esc_attr( $user->display_name ) .'" 
+                    title="'. esc_attr( $user->display_name ) .' 
+                    '. esc_attr( $user->ID ) .'">' . get_avatar( $user->ID, $sz ) . '
+                </span></button>
+                <input type  ="hidden" 
+                    value="'. esc_attr( wp_create_nonce( 'pdtsw_author_nonce' ) ) .'" 
+                    name="pdtsw_author_nonce">
             </form>
         </td>
         <td class="pdtsw-second">' . esc_html($user->display_name) . ' <small><em class="maybehidden">(' 
@@ -219,7 +218,7 @@ if ( $viewable ):
         <td class="pdtsw-third"><a href="'  . esc_url($user->user_url) . '" 
             title="'  . esc_html($user->user_url) . '" target="_blank">' 
             . esc_html($user->user_url) . '</a></td>
-        <td class="pdtsw-fourth">' . mb_substr($user->user_registered, 0, -8) . '</td>
+        <td class="pdtsw-fourth">' . esc_html( mb_substr($user->user_registered, 0, -8) ) . '</td>
         <td class="pdtsw-fifth"><span class="profiletsw-priv"> 
             <a href="" class="' . esc_attr( $hoverclass ) . '" 
             title="'. esc_attr($user->$contact_selctd) .'">'
@@ -239,7 +238,7 @@ if ( $viewable ):
         <td class="pdtsw-last"><span class="' . esc_attr( $hoverclass ) . '">
         <a href="/wp-admin/user-edit.php?user_id=' . absint( $user->ID ) . '" 
             title="'. esc_attr__( 'edit ', 'profile-details-tsw' ) 
-            .' ' . esc_attr($user->display_name) . '#' . $user->ID .'">
+            .' ' . esc_attr($user->display_name) . '#'. esc_attr( $user->ID ).'">
         [ ' . esc_html($user->ID) . ' ]</a></span></td>
         </tr>';
         
@@ -247,31 +246,34 @@ if ( $viewable ):
         
     } 
         else {
-        echo '<tr><td colspan=7>' . esc_html__( 'No profiles found. Try refreshing permalinks or adding new user levels to the view.', 'profile-details-tsw' ) . '</td></tr>';
+        echo '<tr><td colspan=7>
+        ' . esc_html__( 'No profiles found. Try refreshing permalinks or adding new user levels to the view.', 'profile-details-tsw' ) . '</td></tr>';
         }
 
 else: 
 
-        echo '<tr><td colspan=7><h4>' . esc_html__( 'Table viewable only to administrative persons.', 'profile-details-tsw' ) . '</h4></td></tr>';
+        echo '<tr><td colspan=7>
+        <h4>' . esc_html__( 'Table viewable only to administrative persons.', 'profile-details-tsw' ) . '</h4></td></tr>';
     
 endif;
 
-        echo '</tbody></table><div class="tswclearfix"></div>
+        echo '</tbody>
+        </table><div class="tswclearfix"></div>
 
             <footer class="pdtsw-navtext">
-                <p>' . esc_html( 'pg. ', 'profile-details-tsw') . esc_html($page) 
-            . esc_html( ' of ', 'profile-details-tsw') . esc_html($total_pages) 
-            . esc_html( ' pgs.', 'profile-details-tsw') 
-            . '</p><div class="tswclearfix"></div>
+                <p>' . esc_html__( 'pg. ', 'profile-details-tsw') . esc_html($page) 
+                . esc_html__( ' of ', 'profile-details-tsw') . esc_html($total_pages) 
+                . esc_html__( ' pgs.', 'profile-details-tsw') . '</p>
+                <div class="tswclearfix"></div>
                 <nav class="profile-details-pagination">';  
 
         if ( $page > 1 ) {
-        echo '<a href="'. add_query_arg(array('paged' => $page-1)) .'" title="-">'
+        echo '<a href="'. esc_attr( add_query_arg(array( 'paged' => $page-1 ))) .'" title="-">'
                 . esc_html__( 'Previous Page', 'profile-details-tsw') . '</a>';
         }
         // Next page
         if ( $page < $total_pages ) {
-        echo '<a href="'. add_query_arg(array('paged' => $page+1)) .'" title="+">'
+        echo '<a href="'. esc_attr( add_query_arg(array( 'paged' => $page+1 ))) .'" title="+">'
                 . esc_html__( 'Next Page', 'profile-details-tsw') . '</a>';
         }
         echo '</nav>
@@ -317,19 +319,19 @@ function profile_details_tsw_gridsortform_dropdown()
                 : sanitize_text_field('ASC');  
     
     $args = array(
-        'user_registered' => __('Registered Date'),
-        'display_name'   => __('Display Name'),
-        'last_name'    => __('Last Name'),
-        'first_name'  => __('First Name'),
+        'user_registered' => __( 'Registered Date', 'profile-details-tsw' ),
+        'display_name'   => __( 'Display Name', 'profile-details-tsw' ),
+        'last_name'    => __( 'Last Name', 'profile-details-tsw' ),
+        'first_name'  => __( 'First Name', 'profile-details-tsw' ),
     );
 
     ob_start();
     echo
     '<form id="pdtsw-gridsortform" method="POST" 
-        action="'. wp_unslash( $_SERVER["REQUEST_URI"] ) . '">
+        action="'. esc_url_raw( wp_unslash( $_SERVER["REQUEST_URI"] ) ) . '">
     <table class="pdtsw-table"><tbody>
     <tr>
-    <td> <label for="pdtsw-gridsortform-dropdown">'. __('Sort by ', 'profile-details-tsw');
+    <td> <label for="pdtsw-gridsortform-dropdown">'. esc_html__('Sort by ', 'profile-details-tsw');
     echo '<select id="pdtsw-gridsortform-dropdown" 
              name="pdtsw_gridsortform_dropdown" 
              class="pdtsw-select" onchange="this.form.submit()">';
@@ -348,14 +350,14 @@ function profile_details_tsw_gridsortform_dropdown()
     echo '<input type="radio" value="DESC" name="pdtsw_gridsortform_order" 
                 ' . checked($order_is, 'DESC', false) . ' onchange="this.form.submit()"></label>
     </td>
-    <td><input type="hidden" value="'. wp_create_nonce('pdtsw_gridfrm_nonce') .'" 
+    <td><input type="hidden" value="'. esc_attr( wp_create_nonce( 'pdtsw_gridfrm_nonce' )).'" 
         name="pdtsw_gridfrm_nonce">
     </td>
     </tr>
     </tbody></table></form>';
     $output = ob_get_clean();
     
-        echo $output;
+        echo $output; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
              
 }
 
@@ -405,14 +407,17 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
             echo    '</div>';
 
             // pdtsw_gridfrm_nonce
-            if ($_SERVER["REQUEST_METHOD"] == "POST"):
+            if ( wp_unslash( $_SERVER["REQUEST_METHOD"] ) == "POST"):
+
                 if( isset( $_REQUEST['pdtsw_gridfrm_nonce'] ) 
-                && !wp_verify_nonce( $_REQUEST['pdtsw_gridfrm_nonce'], "pdtsw_gridfrm_nonce")) {
-                    exit("Please try again.");
+                && !wp_verify_nonce( sanitize_key( wp_unslash( 
+                $_REQUEST['pdtsw_gridfrm_nonce'] ) ), "pdtsw_gridfrm_nonce" ) ) {
+                    exit( "Please try again." );
                 }
             endif;
 
-            // only one post will be set
+            /* only one post will be set 
+            * @uses !sanitize_key would strip uppercase */
             $order_by = ( isset( $_POST['pdtsw_gridsortform_dropdown'] ) ) 
                 ? sanitize_text_field( wp_unslash( $_POST['pdtsw_gridsortform_dropdown'] ) ) 
                 : 'user_registered';
@@ -488,8 +493,8 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
                 </div><div class="tswclearfix"></div>
         
                 <div class="pdtsw-taxonomy-grid pdtsw-eqh eqh-first">
-                <h6>' . esc_html( profile_details_tsw_thead( absint(3) ) ) . '</h6>
-                <p>';
+                    <h6>' . esc_html( profile_details_tsw_thead( absint(3) ) ) . '</h6>
+                    <p>';
                 $profile_terms = wp_get_object_terms( $user->ID, 'profile_details' );
                 /* 
                 * profile_details tax; profile_details-taxonomy terms 
@@ -507,10 +512,11 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
                 }
                 echo '</p>
                 </div>
+
                 <div class="profiletsw-dscr pdtsw-eqh">
                     <h6>' . esc_attr( profile_details_tsw_thead(absint(4) ) ) . '</h6>';
                     $descript = wpautop( get_the_author_meta( 'description', $user->ID ) );
-                    echo substr( $descript, 0, 115 ) . '...'; 
+                echo stripslashes( substr( $descript, 0, 115 ) . '...' ); 
                 echo 
                 '</div>
                 <div class="pdtsw-url-grid pdtsw-eqh">
@@ -547,18 +553,20 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
 
             echo
             '<footer class="pdtsw-navtext">
-                    <p>' . esc_html( 'pg. ', 'profile-details-tsw') . intval( $paged ) 
-                . esc_html( ' of ', 'profile-details-tsw') . absint( $total_pages ) 
-                . esc_html( ' pgs.', 'profile-details-tsw') 
-                . '</p><div class="tswclearfix"></div>
-                <nav class="profile-details-pagination">'; 
+                <p>' . esc_html__( 'pg. ', 'profile-details-tsw') . intval( $paged ) 
+                . esc_html__( ' of ', 'profile-details-tsw') . absint( $total_pages ) 
+                . esc_html__( ' pgs.', 'profile-details-tsw') . '</p>
+                <div class="tswclearfix"></div>
+                <nav class="profile-details-pagination">
+                    <div id="pagination" class="clearfix gridview-pagi">';
 
                 if( $total_users >= $total_query ) {
-                echo '<div id="pagination" class="clearfix gridview-pagi">';
-                        
+
                     $current_page = max( 1, get_query_var('paged') );
 
-                        echo paginate_links( array(
+                echo '<span class="pagination-links">'; 
+                echo  wp_kses_post( 
+                    paginate_links( array(
                         'base'      => get_pagenum_link(1) . '%_%',
                         'format'    => 'page/%#%/',
                         'current'   => absint( $current_page ),
@@ -566,10 +574,14 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
                         'prev_next' => true,
                         'show_all'  => true,
                         'type'      => 'plain',
-                        ));
+                        )) 
+                    );
+                echo '</span>';
+                
                 }
-                echo '</div>';
-            echo '</nav>
+
+            echo '</div>
+                </nav>
             </footer>';
 
             // kick out if there were no users    

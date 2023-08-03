@@ -10,7 +10,7 @@ class Profile_Details_Tsw_Template_Settings {
     private $file;
 	private $plugin_name = 'Profile Details TSW';
 	private $plugin_slug = 'profile_details_tsw';
-	private $textdomain;
+	private $textdomain  = 'profile-details-tsw';
 	private $options;
 	private $settings;
 
@@ -18,7 +18,7 @@ class Profile_Details_Tsw_Template_Settings {
 		$this->file        = $file;
 		$this->plugin_slug = $plugin_slug;
 		$this->plugin_name = $plugin_name;
-		$this->textdomain  = str_replace('_', '-', $plugin_slug);
+		$this->textdomain  = $textdomain;
 
 		// Initialise settings
 		add_action( 'admin_init', array( $this, 'init' ) );
@@ -275,22 +275,27 @@ class Profile_Details_Tsw_Template_Settings {
 					'label'			=> __( 'Only show these roles', $this->textdomain ),
 					'description'	=> __( 'Select roles to show on front end. Hold CTRL to select multiple.', $this->textdomain ),
 					'type'			=> 'checkbox_multi',
-					'options'		=> array( 'subscriber'      => 'Subscriber', 
-											  'author'          => 'Author', 
-											  'editor'          => 'Editor', 
-											  'contributor'     => 'Contributor', 
-											  'pdtsw_mediator'  => 'Custom', 
-											  'administrator'   => 'Administrator' ),
-					'default'		=> array( 'subscriber', 'contributor', 'author' )
-				), /*
-				array(
+					'options'		=> array( 
+						'subscriber'      => 'Subscriber', 
+						'author'          => 'Author', 
+						'editor'          => 'Editor', 
+						'contributor'     => 'Contributor', 
+						'pdtsw_mediator'  => 'Custom', 
+						'administrator'   => 'Administrator' 
+					),
+					'default'		=> array( 
+										'subscriber', 
+										'contributor', 
+										'author' 
+					)
+				), 
+				/* array(
 					'id' 			=> 'profile_details_tsw_admin_assigns',
 					'label'			=> __( 'Admin Selects Category', $this->textdomain ),
 					'description'	=> __( 'Check box to to allow ONLY administrator or custom role* to assign user categories.', $this->textdomain ),
 					'type'			=> 'checkbox',
 					'default'		=> 'on'
 				), */
-				//profile_details_tsw_viewlink
 				array(
 					'id' 			=> 'profile_details_tsw_viewlink',
 					'label'			=> __( 'Text in View Link' , $this->textdomain ),
@@ -299,7 +304,6 @@ class Profile_Details_Tsw_Template_Settings {
 					'default'		=> 'view',
 					'placeholder'	=> __( 'view', $this->textdomain )
 				),
-				//profile_details_tsw_gridhead
 				array(
 					'id' 			=> 'profile_details_tsw_gridhead',
 					'label'			=> __( 'Background Color in Grid Heading' , $this->textdomain ),

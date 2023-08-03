@@ -113,7 +113,6 @@
 	width: 100%;
 	min-height: 1em;
 	margin: 0;
-	;
 	padding: 15px 5px;
 }
 
@@ -130,6 +129,7 @@
 	display: inline-block;
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 
 .profiletsw-grid li {
@@ -149,6 +149,7 @@
 	box-sizing: border-box;
 	padding: 2px 5px;
 	background: #fcfdfe;
+	min-width: 280px;
 }
 
 .profiletsw-entry-grid p {
@@ -156,9 +157,7 @@
 	word-wrap: break-word;
 }
 
-
 /* div is wrapper, h6 is label, p is content */
-
 .profiletsw-grid h6,
 .profiletsw-grid em,
 .profiletsw-grid figure {
@@ -262,7 +261,7 @@ a.pdtsw-button:hover,
 }
 .captioned-grid-titles{
 	display:block;
-	white-space:break-word;
+	white-space: normal;
 	text-align: center
 }
 .pdtsw-viewlink {
@@ -285,7 +284,7 @@ a.pdtsw-button:hover,
 
 .profiletsw-dscr {
 	display: block;
-	min-height: 3.3125rem;
+	min-height: 6.85em;
 	white-space: normal;
 	overflow: hidden;
 }
