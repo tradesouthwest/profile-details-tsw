@@ -1,424 +1,146 @@
-<pre> 158 | <font color="#AA0000">ERROR</font> | [ ] <b>All output should be run through an escaping function (like</b>
-<b>     |       |     esc_html_e() or esc_attr_e()), found &apos;_e&apos;.</b>
-     |       |     (WordPress.Security.EscapeOutput.UnsafePrintingFunction)
- 170 | <font color="#AA0000">ERROR</font> | [ ] <b>All output should be run through an escaping function (see</b>
-<b>     |       |     the Security sections in the WordPress Developer Handbooks),</b>
-<b>     |       |     found &apos;$term&apos;.</b>
-     |       |     (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 200 | <font color="#AA0000">ERROR</font> | [ ] <b>Processing form data without nonce verification.</b>
-     |       |     (WordPress.Security.NonceVerification.Missing)
- 200 | <font color="#AA0000">ERROR</font> | [ ] <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |       |     wp_unslash() or similar</b>
-     |       |     (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 200 | <font color="#AA0000">ERROR</font> | [ ] <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |       |     $_POST[&apos;profile_details&apos;]</b>
-     |       |     (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
---------------------------------------------------------------------------------
-<b>PHPCBF CAN FIX THE 3 MARKED SNIFF VIOLATIONS AUTOMATICALLY</b>
---------------------------------------------------------------------------------
-
-
-<b>FILE: ...plugin-review/profile-details/public/partials/profile-details-category.php</b>
---------------------------------------------------------------------------------
-<b>FOUND 21 ERRORS AFFECTING 17 LINES</b>
---------------------------------------------------------------------------------
-  12 | <font color="#AA0000">ERROR</font> | <b>Processing form data without nonce verification.</b>
-     |       | (WordPress.Security.NonceVerification.Missing)
-  13 | <font color="#AA0000">ERROR</font> | <b>Processing form data without nonce verification.</b>
-     |       | (WordPress.Security.NonceVerification.Missing)
-  13 | <font color="#AA0000">ERROR</font> | <b>$_POST data not unslashed before sanitization. Use wp_unslash()</b>
-<b>     |       | or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  14 | <font color="#AA0000">ERROR</font> | <b>Processing form data without nonce verification.</b>
-     |       | (WordPress.Security.NonceVerification.Missing)
-  16 | <font color="#AA0000">ERROR</font> | <b>Processing form data without nonce verification.</b>
-     |       | (WordPress.Security.NonceVerification.Missing)
-  16 | <font color="#AA0000">ERROR</font> | <b>$_POST data not unslashed before sanitization. Use wp_unslash()</b>
-<b>     |       | or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  28 | <font color="#AA0000">ERROR</font> | <b>$_SERVER data not unslashed before sanitization. Use</b>
-<b>     |       | wp_unslash() or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  28 | <font color="#AA0000">ERROR</font> | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |       | $_SERVER[&quot;REQUEST_URI&quot;]</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
-  32 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  55 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
-<b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;$html&apos;.</b> (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  73 | <font color="#AA0000">ERROR</font> | <b>extract() usage is highly discouraged, due to the complexity and</b>
-<b>     |       | unintended issues it might cause.</b>
-     |       | (WordPress.PHP.DontExtract.extract_extract)
-  91 | <font color="#AA0000">ERROR</font> | <b>$_REQUEST data not unslashed before sanitization. Use</b>
-<b>     |       | wp_unslash() or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  91 | <font color="#AA0000">ERROR</font> | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |       | $_REQUEST[&apos;nonce&apos;]</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
- 101 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
-<b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;profile_details_tsw_before_block&apos;.</b>
+<pre><b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 106 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
+ 163 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
 <b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;do_action&apos;.</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 127 | <font color="#AA0000">ERROR</font> | <b>$_REQUEST data not unslashed before sanitization. Use</b>
-<b>     |       | wp_unslash() or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 129 | <font color="#AA0000">ERROR</font> | <b>$_POST data not unslashed before sanitization. Use wp_unslash()</b>
-<b>     |       | or similar</b>
-     |       | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 140 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
+ 164 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
 <b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;sanitize_text_field&apos;.</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
+     |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 169 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
+<b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
  170 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
 <b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;mb_substr&apos;.</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 200 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
+ 176 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
 <b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;sanitize_text_field&apos;.</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 208 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
+ 177 | <font color="#AA0000">ERROR</font> | <b>All output should be run through an escaping function (see the</b>
 <b>     |       | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |       | &apos;profile_details_tsw_after_block&apos;.</b>
+<b>     |       | &apos;pdtswget_author_meta&apos;.</b>
      |       | (WordPress.Security.EscapeOutput.OutputNotEscaped)
 --------------------------------------------------------------------------------
 
 
-<b>FILE: ...ew/profile-details/public/partials/helpers/profile-details-grid-values.php</b>
+<b>FILE: ...iew/profile-details-tsw/public/partials/profile-details-public-display.php</b>
 --------------------------------------------------------------------------------
-<b>FOUND 3 ERRORS AND 2 WARNINGS AFFECTING 2 LINES</b>
+<b>FOUND 25 ERRORS AND 6 WARNINGS AFFECTING 29 LINES</b>
 --------------------------------------------------------------------------------
- 24 | <font color="#AA0000">ERROR</font>   | <b>Overriding WordPress globals is prohibited. Found assignment to</b>
-<b>    |         | $pages</b> (WordPress.WP.GlobalVariablesOverride.Prohibited)
- 25 | <font color="#AA5500">WARNING</font> | <b>Processing form data without nonce verification.</b>
-    |         | (WordPress.Security.NonceVerification.Recommended)
- 25 | <font color="#AA5500">WARNING</font> | <b>Processing form data without nonce verification.</b>
-    |         | (WordPress.Security.NonceVerification.Recommended)
- 25 | <font color="#AA0000">ERROR</font>   | <b>$_GET data not unslashed before sanitization. Use wp_unslash()</b>
-<b>    |         | or similar</b>
-    |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 25 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>    |         | $_GET[&apos;page&apos;]</b>
-    |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
---------------------------------------------------------------------------------
-
-
-<b>FILE: ...-review/profile-details/public/partials/profile-details-author-content.php</b>
---------------------------------------------------------------------------------
-<b>FOUND 30 ERRORS AND 1 WARNING AFFECTING 29 LINES</b>
---------------------------------------------------------------------------------
-  32 | <font color="#AA5500">WARNING</font> | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Recommended)
-  32 | <font color="#AA0000">ERROR</font>   | <b>$_REQUEST data not unslashed before sanitization. Use</b>
+  53 | <font color="#AA0000">ERROR</font>   | <b>$_SERVER data not unslashed before sanitization. Use</b>
 <b>     |         | wp_unslash() or similar</b>
      |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  32 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_REQUEST[&apos;profile_id&apos;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
-  70 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;wpautop&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  76 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  77 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+  56 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
 <b>     |         | &apos;__&apos;.</b> (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  78 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+  80 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
+<b>     |         | &apos;wp_create_nonce&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  79 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+  84 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
+<b>     |         | &apos;ob_get_clean&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  89 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 207 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
+<b>     |         | &apos;$user&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  96 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 211 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;wp_create_nonce&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 222 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
 <b>     |         | &apos;mb_substr&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 130 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 242 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
+<b>     |         | &apos;$user&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 131 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 132 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 133 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 134 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 143 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 144 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 145 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$exsvg&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 148 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 149 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 150 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$exsvg&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 153 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 154 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 155 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$exsvg&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 158 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 159 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 160 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$exsvg&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 163 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 164 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;pdtswget_author_meta&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 165 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$exsvg&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 185 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$htm&apos;.</b> (WordPress.Security.EscapeOutput.OutputNotEscaped)
---------------------------------------------------------------------------------
-
-
-<b>FILE: ...-review/profile-details/public/partials/profile-details-public-display.php</b>
---------------------------------------------------------------------------------
-<b>FOUND 56 ERRORS AND 7 WARNINGS AFFECTING 49 LINES</b>
---------------------------------------------------------------------------------
-  24 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
-  25 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
-  25 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  25 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_POST[&apos;pdtsw_sortform_dropdown&apos;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
-  26 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
-  27 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
-  27 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  27 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_POST[&apos;pdtsw_sortform_order&apos;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
-  30 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  31 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  32 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  33 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  34 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  35 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  36 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  37 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
-  41 | <font color="#AA0000">ERROR</font>   | <b>$_SERVER data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
-  41 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_SERVER[&quot;REQUEST_URI&quot;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
-  69 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$html&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
-  81 | <font color="#AA0000">ERROR</font>   | <b>extract() usage is highly discouraged, due to the complexity</b>
-<b>     |         | and unintended issues it might cause.</b>
-     |         | (WordPress.PHP.DontExtract.extract_extract)
- 116 | <font color="#AA0000">ERROR</font>   | <b>$_REQUEST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 116 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_REQUEST[&apos;nonce&apos;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
- 122 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 125 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 164 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$til&apos;.</b> (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 185 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;sanitize_title_with_dashes&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 196 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;mb_substr&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 231 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+ 262 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
 <b>     |         | esc_html__() ? Found: esc_html( &apos;pg. &apos;,</b>
 <b>     |         | &apos;profile-details-tsw&apos;)</b>
      |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 231 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$page&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 232 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+ 263 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
 <b>     |         | esc_html__() ? Found: esc_html( &apos; of &apos;,</b>
 <b>     |         | &apos;profile-details-tsw&apos;)</b>
      |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 232 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$total_pages&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 233 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+ 264 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
 <b>     |         | esc_html__() ? Found: esc_html( &apos; pgs.&apos;,</b>
 <b>     |         | &apos;profile-details-tsw&apos;)</b>
      |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 238 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 269 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
 <b>     |         | &apos;add_query_arg&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 243 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 274 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
 <b>     |         | &apos;add_query_arg&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 272 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
- 273 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
- 273 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 275 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
- 276 | <font color="#AA0000">ERROR</font>   | <b>Processing form data without nonce verification.</b>
-     |         | (WordPress.Security.NonceVerification.Missing)
- 276 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 279 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 280 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 281 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 282 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 287 | <font color="#AA0000">ERROR</font>   | <b>$_SERVER data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 287 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
+ 320 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
+ 321 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
+ 322 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
+ 323 | <font color="#AA0000">ERROR</font>   | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
+ 329 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;wp_unslash&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 329 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
 <b>     |         | $_SERVER[&quot;REQUEST_URI&quot;]</b>
      |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
- 314 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 332 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$html&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 355 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | &apos;__&apos;.</b> (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 351 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;do_action&apos;.</b>
+<b>     |         | &apos;wp_create_nonce&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 363 | <font color="#AA0000">ERROR</font>   | <b>$_REQUEST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 363 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
-<b>     |         | $_REQUEST[&apos;nonce&apos;]</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
- 370 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 373 | <font color="#AA0000">ERROR</font>   | <b>$_POST data not unslashed before sanitization. Use</b>
-<b>     |         | wp_unslash() or similar</b>
-     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
- 420 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;sanitize_title_with_dashes&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 459 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;substr&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 470 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;mb_substr&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 489 | <font color="#AA5500">WARNING</font> | <b>wp_reset_query() is discouraged. Use wp_reset_postdata()</b>
-<b>     |         | instead.</b>
-     |         | (WordPress.WP.DiscouragedFunctions.wp_reset_query_wp_reset_query)
- 494 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
-<b>     |         | esc_html__() ? Found: esc_html( &apos;pg. &apos;,</b>
-<b>     |         | &apos;profile-details-tsw&apos;)</b>
-     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 494 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$paged&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 495 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
-<b>     |         | esc_html__() ? Found: esc_html( &apos; of &apos;,</b>
-<b>     |         | &apos;profile-details-tsw&apos;)</b>
-     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 495 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;$total_pages&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 496 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
-<b>     |         | esc_html__() ? Found: esc_html( &apos; pgs.&apos;,</b>
-<b>     |         | &apos;profile-details-tsw&apos;)</b>
-     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
- 505 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
-<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
-<b>     |         | &apos;paginate_links&apos;.</b>
-     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
- 538 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+ 358 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
 <b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
 <b>     |         | &apos;$output&apos;.</b>
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 410 | <font color="#AA0000">ERROR</font>   | <b>$_REQUEST data not unslashed before sanitization. Use</b>
+<b>     |         | wp_unslash() or similar</b>
+     |         | (WordPress.Security.ValidatedSanitizedInput.MissingUnslash)
+ 410 | <font color="#AA0000">ERROR</font>   | <b>Detected usage of a non-sanitized input variable:</b>
+<b>     |         | $_REQUEST[&apos;pdtsw_gridfrm_nonce&apos;]</b>
+     |         | (WordPress.Security.ValidatedSanitizedInput.InputNotSanitized)
+ 481 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;wp_create_nonce&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 513 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;substr&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 524 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;mb_substr&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
+ 550 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+<b>     |         | esc_html__() ? Found: esc_html( &apos;pg. &apos;,</b>
+<b>     |         | &apos;profile-details-tsw&apos;)</b>
+     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
+ 551 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+<b>     |         | esc_html__() ? Found: esc_html( &apos; of &apos;,</b>
+<b>     |         | &apos;profile-details-tsw&apos;)</b>
+     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
+ 552 | <font color="#AA5500">WARNING</font> | <b>esc_html() expects only one parameter. Did you mean to use</b>
+<b>     |         | esc_html__() ? Found: esc_html( &apos; pgs.&apos;,</b>
+<b>     |         | &apos;profile-details-tsw&apos;)</b>
+     |         | (WordPress.CodeAnalysis.EscapedNotTranslated.Found)
+ 561 | <font color="#AA0000">ERROR</font>   | <b>All output should be run through an escaping function (see the</b>
+<b>     |         | Security sections in the WordPress Developer Handbooks), found</b>
+<b>     |         | &apos;paginate_links&apos;.</b>
+     |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
 --------------------------------------------------------------------------------
 
 
-<b>FILE: .../html/cp-plugin-review/profile-details/templates/Profiledetails_Widget.php</b>
+<b>FILE: ...l/cp-plugin-review/profile-details-tsw/templates/Profiledetails_Widget.php</b>
 --------------------------------------------------------------------------------
 <b>FOUND 9 ERRORS AND 1 WARNING AFFECTING 6 LINES</b>
 --------------------------------------------------------------------------------
@@ -457,27 +179,315 @@
 --------------------------------------------------------------------------------
 
 
-<b>FILE: ...tml/cp-plugin-review/profile-details/includes/profile-details-taxonomy.php</b>
+<b>FILE: ...in-review/profile-details-tsw/admin/class-profile-details-tsw-settings.php</b>
 --------------------------------------------------------------------------------
-<b>FOUND 10 ERRORS AFFECTING 10 LINES</b>
+<b>FOUND 89 ERRORS AND 3 WARNINGS AFFECTING 91 LINES</b>
 --------------------------------------------------------------------------------
- 36 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 37 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 38 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 39 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 40 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 41 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 42 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 43 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 44 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
- 45 | <font color="#AA0000">ERROR</font> | <b>Missing $domain arg.</b> (WordPress.WP.I18n.MissingArgDomain)
+  86 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+  99 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 100 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 104 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 105 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 112 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 113 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 120 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 121 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 128 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 129 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 136 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 137 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 144 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 145 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 148 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 152 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 153 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 156 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 160 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 161 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 168 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 169 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 175 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 176 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 178 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 179 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 180 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 181 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 187 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 188 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 194 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 195 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 201 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 203 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 219 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 220 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 224 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 225 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 231 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 232 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 238 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 239 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 245 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 246 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 252 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 253 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 259 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 260 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 263 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 267 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 269 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 275 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 276 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 281 | <font color="#AA5500">WARNING</font> | [x] <b>Expected 1 space between &quot;&apos;contributor&apos;&quot; and double arrow;</b>
+<b>     |         |     5 found.</b>
+     |         |     (WordPress.Arrays.MultipleStatementAlignment.LongIndexSpaceBeforeDoubleArrow)
+ 282 | <font color="#AA5500">WARNING</font> | [x] <b>Expected 1 space between &quot;&apos;pdtsw_mediator&apos;&quot; and double</b>
+<b>     |         |     arrow; 2 found.</b>
+     |         |     (WordPress.Arrays.MultipleStatementAlignment.LongIndexSpaceBeforeDoubleArrow)
+ 283 | <font color="#AA5500">WARNING</font> | [x] <b>Expected 1 space between &quot;&apos;administrator&apos;&quot; and double</b>
+<b>     |         |     arrow; 3 found.</b>
+     |         |     (WordPress.Arrays.MultipleStatementAlignment.LongIndexSpaceBeforeDoubleArrow)
+ 283 | <font color="#AA0000">ERROR</font>   | [x] <b>Closing parenthesis of array declaration must be on a new</b>
+<b>     |         |     line</b>
+     |         |     (WordPress.Arrays.ArrayDeclarationSpacing.CloseBraceNewLine)
+ 296 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 297 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 300 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 305 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 306 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 313 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 314 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 321 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 322 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 329 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 330 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 337 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 338 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 341 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 345 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 346 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 349 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 355 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 356 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 360 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 362 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 366 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 367 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 371 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 372 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 378 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 382 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 383 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 385 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 389 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 390 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 397 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 398 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+ 639 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
+<b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
+     |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
+--------------------------------------------------------------------------------
+<b>PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY</b>
 --------------------------------------------------------------------------------
 
 
-<b>FILE: ...view/profile-details/admin/profile-details-tsw-settings-template-class.php</b>
+<b>FILE: ...-plugin-review/profile-details-tsw/admin/profile-details-admin-helpers.php</b>
 --------------------------------------------------------------------------------
-<b>FOUND 95 ERRORS AND 3 WARNINGS AFFECTING 95 LINES</b>
+<b>FOUND 2 ERRORS AFFECTING 2 LINES</b>
 --------------------------------------------------------------------------------
+ 60 | <font color="#AA0000">ERROR</font> | [x] <b>Multi-line array item not aligned correctly; expected 11</b>
+<b>    |       |     spaces, but found 12</b>
+    |       |     (WordPress.Arrays.ArrayIndentation.MultiLineArrayItemNotAligned)
+ 65 | <font color="#AA0000">ERROR</font> | [x] <b>Multi-line array item not aligned correctly; expected 11</b>
+<b>    |       |     spaces, but found 12</b>
+    |       |     (WordPress.Arrays.ArrayIndentation.MultiLineArrayItemNotAligned)
+--------------------------------------------------------------------------------
+<b>PHPCBF CAN FIX THE 2 MARKED SNIFF VIOLATIONS AUTOMATICALLY</b>
+--------------------------------------------------------------------------------
+
+
+<b>FILE: .../profile-details-tsw/admin/profile-details-tsw-settings-template-class.php</b>
+--------------------------------------------------------------------------------
+<b>FOUND 95 ERRORS AND 4 WARNINGS AFFECTING 96 LINES</b>
+--------------------------------------------------------------------------------
+   8 | <font color="#AA5500">WARNING</font> | [ ] <b>Duplicate class name</b>
+<b>     |         |     &quot;Profile_details_Tsw_Template_Settings&quot; found; first</b>
+<b>     |         |     defined in</b>
+<b>     |         |     /var/www/html/cp-plugin-review/profile-details-tsw/admin/class-profile-details-tsw-settings.php</b>
+<b>     |         |     on line 8</b> (Generic.Classes.DuplicateClassName.Found)
   86 | <font color="#AA0000">ERROR</font>   | [ ] <b>The $domain arg must be a single string literal, not</b>
 <b>     |         |     &quot;$this-&gt;textdomain&quot;.</b>
      |         |     (WordPress.WP.I18n.NonSingularStringLiteralDomain)
@@ -782,19 +792,7 @@
 --------------------------------------------------------------------------------
 
 
-<b>FILE: ...in-review/profile-details/admin/partials/profile-details-admin-display.php</b>
---------------------------------------------------------------------------------
-<b>FOUND 2 ERRORS AFFECTING 2 LINES</b>
---------------------------------------------------------------------------------
- 70 | <font color="#AA0000">ERROR</font> | <b>There must be a comment when fall-through is intentional in a</b>
-<b>    |       | non-empty case body</b>
-    |       | (PSR2.ControlStructures.SwitchDeclaration.TerminatingComment)
- 98 | <font color="#AA0000">ERROR</font> | <b>Overriding WordPress globals is prohibited. Found assignment to</b>
-<b>    |       | $wp_roles</b> (WordPress.WP.GlobalVariablesOverride.Prohibited)
---------------------------------------------------------------------------------
-
-
-<b>FILE: ...n-review/profile-details/admin/partials/profile-details-public-display.php</b>
+<b>FILE: ...view/profile-details-tsw/admin/partials/profile-details-public-display.php</b>
 --------------------------------------------------------------------------------
 <b>FOUND 56 ERRORS AND 7 WARNINGS AFFECTING 49 LINES</b>
 --------------------------------------------------------------------------------
@@ -979,7 +977,7 @@
      |         | (WordPress.Security.EscapeOutput.OutputNotEscaped)
 --------------------------------------------------------------------------------
 
-Time: 1.71 secs; Memory: 18MB
+Time: 2.05 secs; Memory: 18MB
 
-<span style="background-color:#0087AF"><font color="#FFFFFF"><b> linuxlite </b></font></span><span style="background-color:#303030"><font color="#0087AF"> </font></span><span style="background-color:#303030"><font color="#BCBCBC"> main </font></span><span style="background-color:#585858"><font color="#303030"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">… </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">html </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">cp-plugin-review </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#D0D0D0"><b>profile-details </b></font></span><span style="background-color:#5F0000"><font color="#585858"> </font></span><span style="background-color:#5F0000"><font color="#FFFFFF">2 </font></span><font color="#5F0000"> </font>
+<span style="background-color:#0087AF"><font color="#FFFFFF"><b> linuxlite </b></font></span><span style="background-color:#303030"><font color="#0087AF"> </font></span><span style="background-color:#303030"><font color="#BCBCBC"> main </font></span><span style="background-color:#585858"><font color="#303030"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">… </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">html </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#BCBCBC">cp-plugin-review </font></span><span style="background-color:#585858"><font color="#8A8A8A"> </font></span><span style="background-color:#585858"><font color="#D0D0D0"><b>profile-details-tsw </b></font></span><span style="background-color:#5F0000"><font color="#585858"> </font></span><span style="background-color:#5F0000"><font color="#FFFFFF">2 </font></span><font color="#5F0000"> </font>
 </pre>
