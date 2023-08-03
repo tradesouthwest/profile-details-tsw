@@ -4,29 +4,32 @@
  *
  * @since 1.0.4 
  * @subpackage public/partials/profile-details-category
- * @see maybe use https://github.com/ebenhaezerbm/fwc-dropdown-users
  * @return HTML 
  */
 
 function profile_details_tsw_sortform_dropdown_categories()
 {
-    // wp_create_nonce('pdtsw_catcatfrm_nonce') .'" name="catsort_nonce"
     if(isset( $_REQUEST['profile_sortform_catview'] ) ) :  
     $verify = wp_verify_nonce( $_REQUEST['catsort_nonce'], 
                                 'pdtsw_catcatfrm_nonce'); 
-    if ( !$verify ) { exit("No funny business please"); }
+    if ( !$verify ) { exit("Nonce not found for category"); }
     endif;
+    $mediator     = profile_details_tsw_pdtsw_mediator();
+    $user         = wp_get_current_user();
+    $allowed_roles = array('editor', 'administrator', $mediator);
     
-    $cattosort   = ( isset( $_POST['profile_sortform_catview'] ) ) 
-                 ? sanitize_title_with_dashes( wp_unslash( 
+    $cattosort    = ( isset( $_POST['profile_sortform_catview'] ) ) 
+                  ? sanitize_title_with_dashes( wp_unslash( 
                             $_POST['profile_sortform_catview'] ) ) 
-                 : 'any'; 
-    $orderis     = ( isset( $_POST['pdtsw_catsortform_order'] ) )
-                 ? sanitize_text_field( wp_unslash( 
+                  : 'all'; 
+    $orderis      = ( isset( $_POST['pdtsw_catsortform_order'] ) )
+                  ? sanitize_text_field( wp_unslash( 
                             $_POST['pdtsw_catsortform_order'] ) ) 
-                 : 'ASC';
-    $categor_url = profile_details_tsw_get_tableview_page();    
-    $taxonomies  = get_terms( array(
+                  : 'ASC';
+    $categor_url  = profile_details_tsw_get_tableview_page(); 
+    $gridview_url = profile_details_tsw_get_gridview_page();  
+    
+    $taxonomies = get_terms( array(
         'taxonomy'   => 'profile_details',
         'hide_empty' => false
     ) );
@@ -38,11 +41,11 @@ function profile_details_tsw_sortform_dropdown_categories()
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
         action="'.htmlspecialchars( esc_url( 
-                                $_SERVER["REQUEST_URI"] ) ).'#content" >'; 
+            $_SERVER["REQUEST_URI"] ) ).'">'; 
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
-        <option value="">'. esc_html__('Select to Order By') .'</option>';
+        <option value="">'. esc_html__('Select to Order By', 'profile-details-tsw') .'</option>';
 
     ob_start();
         foreach( $taxonomies as $category ) {
@@ -56,18 +59,25 @@ function profile_details_tsw_sortform_dropdown_categories()
     $html .= '</select></label>
         </td>
         <td>
-        <label for="pdtsw_catsortform_order">' . __('Order Ascending ', 'profile-details-tsw');
+        <label for="pdtsw_catsortform_order">' . esc_html__('Order Ascending ', 'profile-details-tsw');
     $html .= '<input type="radio" value="ASC" name="pdtsw_catsortform_order" 
              ' . checked($orderis, 'ASC', false) .' onchange="this.form.submit()"></label>
-        <label for="pdtsw_catsortform_order">' . __('Descending ', 'profile-details-tsw');
+        <label for="pdtsw_catsortform_order">' . esc_html__('Descending ', 'profile-details-tsw');
     $html .= '<input type="radio" value="DESC" name="pdtsw_catsortform_order" 
              ' . checked($orderis, 'DESC', false) .' onchange="this.form.submit()"></label>
         <input type="hidden" value="' . wp_create_nonce('pdtsw_catcatfrm_nonce') .'" name="catsort_nonce">
         </form>
         </td>
-        <td><a href="'. esc_url( $categor_url ) .'" title="'. __('Back to Table View','profile-details-tsw').'" 
-        class="pdtsw-button">' . esc_html__('Back to Table View','profile-details-tsw') .'</a>
-        </td>
+        <td>';
+        if( array_intersect($allowed_roles, $user->roles ) ) {
+
+    $html .= '<a href="'. esc_url( $categor_url ) .'" title="'. esc_attr__('Back to Table View','profile-details-tsw').'" 
+        class="pdtsw-button">' . esc_html__('Back to Table View','profile-details-tsw') .'</a>';
+        } else {
+    $html .= '<a href="'. esc_url( $gridview_url ) .'" title="'. esc_attr__('Back to Profiles View','profile-details-tsw').'" 
+        class="pdtsw-button">' . esc_html__('Back to Profiles View','profile-details-tsw') .'</a>';
+        }
+    $html .= '</td>
     </tr>
     </tbody></table>';
 
@@ -95,7 +105,9 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
         'term'   => 'all'
     ), $atts ) );
     // keeps query clean
-    $users = ''; $users = null;
+    $users = ''; 
+    $users = null;
+    // values
     $viewable       = profile_details_tsw_table_private();
     $contact_privi  = profile_details_tsw_contact_privi();
     $contact_selctd = profile_details_tsw_contact_selected();
@@ -115,7 +127,7 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
             . '</div>';
     echo '<div class="pdtsw-sortform">';
         /* @subpackage includes/profile-details-requires C1 */
-        echo do_action('pdtsw_dropdown_category_children');
+        do_action('pdtsw_dropdown_category_children');
     
     echo '</div>';
     echo 
@@ -135,76 +147,79 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
             <tbody class="pdtsw_sortable">';
     
     $cattosort  = ( isset( $_REQUEST['profile_sortform_catview'] ) && 
-                   !empty( $_REQUEST['profile_sortform_catview'] ) ) ?  
-      sanitize_text_field( $_REQUEST['profile_sortform_catview'] ) : 'any';
+                   !empty( $_REQUEST['profile_sortform_catview'] ) ) 
+                ? sanitize_text_field( wp_unslash( $_REQUEST['profile_sortform_catview'] ) )
+                : 'all';
     $order_is   = ( isset( $_POST['pdtsw_catsortform_order'] ) ) 
-    ? sanitize_text_field( $_POST['pdtsw_catsortform_order'] ) : 'ASC';
+                ? sanitize_text_field( wp_unslash( $_POST['pdtsw_catsortform_order'] ) ) 
+                : 'ASC';
     // WP_User_Query arguments
     $args = array (
-        'orderby' => sanitize_text_field($order_by),    
-        'order'   => sanitize_text_field($order_is),
+        'orderby' => esc_attr($order_by),    
+        'order'   => esc_attr($order_is),
     );
     // The User Query
     $user_query = new WP_User_Query( $args );
     $users      = $user_query->results;
     
     echo 
-    '<tr><td colspan="4">'. sanitize_text_field($cattosort).'</td><td colspan="3"></td></tr>';
+    '<tr><td colspan="4">'. esc_html($cattosort).'</td><td colspan="3">
+    </td></tr>';
 
     // User Loop
     if ( ! empty( $users ) ) { 
         
         foreach ( $users as $user ) {
 
-            $term_list = wp_get_object_terms( $user->ID, 'profile_details' );
+            $term_list = wp_get_object_terms( absint( $user->ID ), 'profile_details' );
+            
             if ( ! empty( $term_list ) && ! is_wp_error( $term_list ) ) {
                 $terms_string = join(', ', wp_list_pluck($term_list, 'name'));
-            } else { $terms_string = ''; }
+            } else { 
+                $terms_string = ''; 
+            }
             //only loop if in cat
             if( sanitize_title_with_dashes($terms_string) 
-                == sanitize_title_with_dashes($cattosort) ) 
-            {
-            echo 
-        '<tr class="profiletsw-tr">
-            <td class="pdtsw-first">
-                <a href="' . esc_url( $profile_url . '?profile_id='. $user->ID ) . '" 
-                title="'. esc_attr__( 'visit profile for', 'profile-details-tsw') . ' ' 
-                . esc_attr( $user->display_name ) . '" class="profiletsw-figlink" 
-                alt="' .  esc_attr( profile_details_tsw_thead( absint(1) ) ) . '">'
-                . get_avatar( $user->ID, $sz ) . '</a></td>
-            <td class="pdtsw-second">' . esc_html($user->display_name) . ' <small>(' 
-                . esc_html($user->user_login) . ')<span style="color:green"> ' 
-                . esc_html($user->last_name) . ', ' . esc_html($user->first_name) 
-                . '</span></small></td>
-            <td class="pdtsw-third"><a href="'  . esc_url($user->user_url) . '" 
-                title="'  . esc_html($user->user_url) . '" target="_blank">' 
-                . esc_html($user->user_url) . '</a></td>
-            <td class="pdtsw-fourth">' . mb_substr($user->user_registered, 0, -8) . '</td>
-            <td class="pdtsw-fifth"><span class="profiletsw-priv">'; 
-                echo '<a href="" class="' . esc_attr( $hoverclass ) . '" 
-                title="'. esc_attr($user->$contact_selctd) .'">'
-                . esc_html($user->$contact_selctd) . '</a></span></td>
-            <td class="pdtsw-sixth profile-details-terms">';
+                == sanitize_title_with_dashes($cattosort) ) {
+        echo '<tr class="profiletsw-tr">
+        <td class="pdtsw-first">
+            <a href="' . esc_url( $profile_url . '?profile_id='. $user->ID ) . '" 
+            title="'. esc_attr__( 'visit profile for', 'profile-details-tsw') . ' ' 
+            . esc_attr( $user->display_name ) . '" class="profiletsw-figlink" 
+            alt="' .  esc_attr( profile_details_tsw_thead( absint(1) ) ) . '">'
+            . get_avatar( $user->ID, $sz ) . '</a></td>
+        <td class="pdtsw-second">' . esc_html($user->display_name) . ' <small>(' 
+            . esc_html($user->user_login) . ')<span style="color:green"> ' 
+            . esc_html($user->last_name) . ', ' . esc_html($user->first_name) 
+            . '</span></small></td>
+        <td class="pdtsw-third"><a href="'  . esc_url($user->user_url) . '" 
+            title="'  . esc_html($user->user_url) . '" target="_blank">' 
+            . esc_html($user->user_url) . '</a></td>
+        <td class="pdtsw-fourth">' . mb_substr($user->user_registered, 0, -8) . '</td>
+        <td class="pdtsw-fifth"><span class="profiletsw-priv">'; 
+            echo '<a href="" class="' . esc_attr( $hoverclass ) . '" 
+            title="'. esc_attr($user->$contact_selctd) .'">'
+            . esc_html($user->$contact_selctd) . '</a></span></td>
+        <td class="pdtsw-sixth profile-details-terms">';
 
-            $profile_terms = wp_get_object_terms( $user->ID,  'profile_details' );
-            
-            if ( !empty( $profile_terms ) ) {
-                foreach ( $profile_terms as $term ) { 
-                    echo '<span class="pdtsw-item">' . esc_html( $term->name ) . ' </span>';
-                }
-                } else {
-                    echo esc_html__( 'Not Specified.', 'profile-details-tsw' );
+        $profile_terms = wp_get_object_terms( $user->ID,  'profile_details' );
+        
+        if ( !empty( $profile_terms ) ) {
+            foreach ( $profile_terms as $term ) { 
+                echo '<span class="pdtsw-item">' . esc_html( $term->name ) . ' </span>';
             }
+            } else {
+                echo esc_html__( 'Not Specified.', 'profile-details-tsw' );
+        }
         echo '</td>
             <td class="pdtsw-last">'  . esc_html($user->ID) . '</td>
         </tr>';
-            } 
-            // edns filter in cats
-        } 
-        //ends foreach
+            } // ends filter in cats
+        }    //ends foreach
     $users = $terms_string = ''; $users = null;    
     } else { 
-        echo '<tr><td colspan=7>none found</td></tr>';     
+        echo '<tr><td colspan=7>' . esc_html__( 'Nothing found', 'profile-details-tsw' ) 
+        . '</td></tr>';     
     }
     
     echo 

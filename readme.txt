@@ -64,6 +64,8 @@ A.: If you know CSS then you can use any CSS editor to add a selctor in your Cus
 == Changelog ==
 1.0.4
 * grid title chngd to grid-titles
+* removed single helper files
+* added many escape sequences
 
 1.0.32
 * fixed activator function

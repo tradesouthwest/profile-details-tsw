@@ -1,6 +1,6 @@
 <?php
 /**
- * Provide a public-facing view for the plugin
+ * Provide assistance to the public-facing view for the plugin
  *
  * This file is used to markup the public-facing aspects of the plugin.
  *
@@ -118,10 +118,25 @@ function pdtswget_author_meta($meta_key, $profile_id)
 
         return $rtrn;
 }
+
+/**
+ * Get option url. Page that is saved as Select Page with Gridview Shortcode.
+ *
+ * @since 1.0.0
+ */
+function profile_details_tsw_get_gridview_page()
+{
+    $options      = get_option('profile_details_tsw');
+    $option       = $options["profile_details_tsw_gridview_page"];
+    $gridview_url = ( '' != $option ) ? get_page_link(absint($option)) : '';
+
+        return $gridview_url;
+}
+
 /**
  * Get option url. Page that is saved as Select Page with Tableview Shortcode.
  *
- * @since 1.0.02
+ * @since 1.0.0
  */
 function profile_details_tsw_get_tableview_page()
 {
@@ -559,6 +574,32 @@ function pdtsw_user_roles_by_id( $id )
     }
 
     return $out;
+}
+/**
+* Sanitize SVG markup for front-end display.
+*
+* @param  string $svg SVG markup to sanitize.
+* @return string 	  Sanitized markup.
+*/
+function pdtsw_sanitize_svg( $svg = '' ) {
+	$allowed_html = [
+		'svg'  => [
+			'xmlns'       => [],
+			'fill'        => [],
+			'viewbox'     => [],
+			'role'        => [],
+			'aria-hidden' => [],
+			'focusable'   => [],
+			'height'      => [],
+			'width'       => [],
+		],
+		'path' => [
+			'd'    => [],
+			'fill' => [],
+		],
+	];
+
+	return wp_kses( $svg, $allowed_html );
 }
 /** 
  * Check to turn on debug mode

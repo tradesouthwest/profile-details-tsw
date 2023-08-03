@@ -217,7 +217,6 @@ a.pdtsw-button:hover,
 	white-space: normal;
 	word-wrap: inherit;
 	width: 66%;
-	text-align: start;
 }
 
 .pdtsw-view {
@@ -227,18 +226,25 @@ a.pdtsw-button:hover,
 
 .pdtsw-avatar-grid .profiletsw-figlink {
 	width: 52px;
+	float: none;
 	display: block;
+	margin: 1px auto;
+	text-align: center;
 }
 
 .profiletsw-figlink img {
-	margin: 3px 0;
 	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+
 }
 
 .pdtsw-avatar-grid .profiletsw-figlink:hover {
 	box-shadow: 2px 0px 3px 3px rgba(100, 100, 100, .2);
 }
-
+#pdtswTableView tr:nth-child(2n){
+	background: #f0fcfb;
+}
 .pdtsw-grid-title {
 	position: relative;
     top: -4em;
@@ -253,6 +259,11 @@ a.pdtsw-button:hover,
 }
 .pdtsw-grid-titles a{
 	text-decoration: none
+}
+.captioned-grid-titles{
+	display:block;
+	white-space:break-word;
+	text-align: center
 }
 .pdtsw-viewlink {
 	background: transparent;
@@ -323,11 +334,15 @@ a.blue-anchor {
 	color: blue;
 }
 
-.exsvg {
+.exsvg em{
 	position: relative;
-	bottom: -.222rem;
+	top: -4px;
 }
-
+.exsvg em:after{
+	content: "[^]";
+	display: inline-block;
+	font-size: x-small
+}
 select.pdtsw-select,
 .pdtsw-button {
 	position: relative;
@@ -346,6 +361,8 @@ input[type=submit].pdtsw-button {
 
 .tiny-submit{
 	padding: 0px 2px;
+	min-height:1.5em;
+	cursor:pointer;
 }
 
 select.pdtsw-select {

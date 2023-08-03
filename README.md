@@ -1,2 +1,2 @@
-# profile-details-tsw
-ClassicPress Plugin creates easy to view and manage user profile details.
+# profile-details
+Creates easy to view user profile details.

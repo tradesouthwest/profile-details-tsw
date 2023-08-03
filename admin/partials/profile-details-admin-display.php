@@ -27,7 +27,7 @@ function profile_details_tsw_add_profile_detail_admin_page() {
 		esc_attr( $tax->labels->menu_name ),
 		esc_attr( $tax->labels->menu_name ),
 		$tax->cap->manage_terms,
-		'edit-tags.php?taxonomy=' . $tax->name
+		'edit-tags.php?taxonomy=' . esc_attr($tax->name)
 	);
 }
 
@@ -59,28 +59,23 @@ function profile_details_tsw_manage_profile_details_custom_column( $columns )
  * Displays content for custom columns on the manage profile page in the admin.
  *
  * @param string $display WP just passes an empty string here.
- * @param string $column The name of the custom column.
- * @param int $term_id The ID of the term being displayed in the table.
+ * @param string $column  The name of the custom column.
+ * @param int $term_id    The ID of the term being displayed in the table.
  */
 function profile_details_tsw_manage_profile_details_column( $display, $column, $user_id ) 
 {
 	$htm           = '';
 	$profile_terms = wp_get_object_terms( $user_id,  'profile_details' );
-	switch ($column) {
-		case 'profile_details':
+	if ( !empty( $profile_terms ) ) {
 
-            if ( !empty( $profile_terms ) ) {
-
-                foreach ( $profile_terms as $term ) { 
-                    $htm .= esc_html( $term->name );
-                }
-            
-			} else {
-                $htm .= __( 'Not Specified.', 'profile-details-tsw' );
-            }
-		default: 
-	}
-	return $htm;
+		foreach ( $profile_terms as $term ) { 
+            $htm .= esc_attr( $term->name );
+    	}        
+	} 
+	else {
+        $htm .= __( 'Not Specified.', 'profile-details-tsw' );
+    }
+	    return $htm;
 } 
 /** AD4
  * Change role name when option is updated
@@ -93,13 +88,12 @@ function profile_details_tsw_manage_profile_details_column( $display, $column, $
 
 function profile_details_tsw_update_custom_user_role()
 {
-global $wp_roles;
-if ( ! isset( $wp_roles ) )
-$wp_roles = new WP_Roles();
+	global $wp_roles;
 
 	// name assigned in admin
 	$mediator = (''!= ( get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'])) 
-	? get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'] : '';
+	                  ? get_option('profile_details_tsw')['profile_details_tsw_pdtsw_mediator'] 
+					  : '';
 	$wp_roles->roles['pdtsw_mediator']['name'] = sanitize_text_field($mediator );
 	$wp_roles->role_names['pdtsw_mediator'] = sanitize_text_field($mediator );
 } 

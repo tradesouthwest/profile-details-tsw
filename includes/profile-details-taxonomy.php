@@ -2,6 +2,7 @@
 /**
  * Profile Details TSW Taxonomy
  * 
+ * @since 1.0.0
  * @param int $option_id The ID of the option being edited.
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -33,16 +34,16 @@ function profile_details_tsw_register_user_taxonomy() {
 		array(
 			'public' => true,
 			'labels' => array( 
-                'name'          => __( 'Profile Details' ),
-				'singular_name' => __( 'Profile Detail' ),
-				'menu_name'     => __( 'Profile Categories' ),
-				'search_items'  => __( 'Search Profile Details' ),
-				'popular_items' => __( 'Popular Profile Details' ),
-				'all_items'     => __( 'All Profile Details' ),
-				'edit_item'     => __( 'Edit Profile Detail' ),
-				'update_item'   => __( 'Update Profile Detail' ),
-				'add_new_item'  => __( 'Add New Profile Detail Category' ),
-				'new_item_name' => __( 'New Profile Detail Name' ),
+                'name'          => __( 'Profile Details', 'profile-details-tsw' ),
+				'singular_name' => __( 'Profile Detail', 'profile-details-tsw' ),
+				'menu_name'     => __( 'Profile Categories', 'profile-details-tsw' ),
+				'search_items'  => __( 'Search Profile Details', 'profile-details-tsw' ),
+				'popular_items' => __( 'Popular Profile Details', 'profile-details-tsw' ),
+				'all_items'     => __( 'All Profile Details', 'profile-details-tsw' ),
+				'edit_item'     => __( 'Edit Profile Detail', 'profile-details-tsw' ),
+				'update_item'   => __( 'Update Profile Detail', 'profile-details-tsw' ),
+				'add_new_item'  => __( 'Add New Profile Detail Category', 'profile-details-tsw' ),
+				'new_item_name' => __( 'New Profile Detail Name', 'profile-details-tsw' ),
 			),
 			'rewrite'   => array(
 				'with_front' => false,
@@ -93,6 +94,6 @@ function profile_details_update_mediator_role()
             )
         );
         // Whether to load the option when WordPress starts up.
-        update_option( $options['pdtsw_custom_roles_version'], absint('1'), true );
+        update_option( $mediator, absint('1'), true );
 	} 
 }
