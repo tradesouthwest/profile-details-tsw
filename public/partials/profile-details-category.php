@@ -9,18 +9,22 @@
 
 function profile_details_tsw_sortform_dropdown_categories()
 {
-    $cattosort  = $orderis = '';
+    $cattosort = ''; 
+    $orderis    = 'ASC';
     $mediator    = profile_details_tsw_pdtsw_mediator();
     $user         = wp_get_current_user();
     $allowed_roles = array('editor', 'administrator', $mediator);
 
-    if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+       if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
         // uses pdtsw_catsort_nonce
-        $submitted_value = esc_attr( wp_unslash( sanitize_text_field( 
-            $_REQUEST['pdtsw_catsort_nonce'] ) ) );
-        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_catsort_nonce' ) ) { 
+        $submitted_value = esc_attr( 
+            wp_unslash( sanitize_key( $_REQUEST['pdtsw_catsort_nonce'] ) ) );
+
+        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 
+            'pdtsw_catsort_nonce' ) ) { 
             exit("No funny business please. Line 17"); 
         }
+           
     $cattosort    = ( isset( $_POST['profile_sortform_catview'] ) ) 
                   ? sanitize_title_with_dashes( wp_unslash( 
                             $_POST['profile_sortform_catview'] ) ) 
@@ -45,8 +49,7 @@ function profile_details_tsw_sortform_dropdown_categories()
     <tr>
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
-            action="'. esc_url_raw( wp_unslash( sanitize_text_field( 
-                $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
+        action="'. wp_unslash( sanitize_key( esc_url_raw( $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
