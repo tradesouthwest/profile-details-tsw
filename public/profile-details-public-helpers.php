@@ -153,11 +153,12 @@ function profile_details_tsw_get_tableview_page()
  * @uses $option string | int Id of page.
  * @since 1.0.02
  */
-function  profile_details_tsw_get_author_page()
+function  profile_details_tsw_get_author_page() 
 {
+    //profile_details_tsw_author_page
     $options     = get_option('profile_details_tsw');
-    $option      = $options["profile_details_tsw_author_page"];
-    $profile_url = ( '' != $option ) ? get_page_link(absint($option)) : '';
+    $purl        = $options["profile_details_tsw_author_page"];
+    $profile_url = ( '' != $purl ) ? get_page_link( intval( $purl )) : '';
 
         return $profile_url;
 }

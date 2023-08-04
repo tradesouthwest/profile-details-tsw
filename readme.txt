@@ -8,7 +8,7 @@ Requires CP:       1.4
 Stable tag:        1.0.5
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-3.0.html
-Plugin URI:        https://themes.tradesouthwest.com/wordpress/plugins/profile-details-tsw/
+Plugin URI:        https://tswdev.com/demo/
 
 Creates easy to view user profile details.
 

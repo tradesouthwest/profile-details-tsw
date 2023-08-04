@@ -4,7 +4,7 @@
  *
  * This file is used to markup the public-facing aspects of the plugin Shortcodes.
  *
- * @since      1.0.0
+ * @since      1.0.5
  * @link       https://tradesouthwest.com
  * @package    Profile_Details
  * @subpackage Profile_Details/public/partials/profile-details-author-content
@@ -149,7 +149,7 @@ function profile_details_tsw_render_author_page($att='', $content=null)
             if('' != pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id ) ) ) { 
             echo
             '<li><a href="' . esc_url( pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id ) )) . '" 
-                title="" class="blue-anchor">' . pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id) ) . ' 
+                title="" class="blue-anchor">' . esc_url( pdtswget_author_meta( 'pdtsw_twitter_profile', absint($profile_id) )) . ' 
                 <span class="exsvg" title="'. esc_attr__( 'off site link', 'profile-details-tsw' ) . '"><em></em></span></a></li>'; 
             }
             if('' != pdtswget_author_meta( 'pdtsw_linkedin_profile', absint($profile_id) ) ) { 

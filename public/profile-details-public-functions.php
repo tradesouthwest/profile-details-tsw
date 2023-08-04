@@ -124,8 +124,10 @@ function profile_details_tsw_extra_profile_info( $user ) {
 		<tr>
 			<th><label for="profile_details_tsw_adminnotes"><?php esc_html_e( 'Internal Notes', 'profile-details-tsw' ); ?></label></th>
 			<td class="pdtsw-adminnotes">
-    <textarea id="profile_details_tsw_adminnotes" name="profile_details_tsw_adminnotes" cols=30 rows=5><?php echo wp_kses_post( 
-		get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID ) ); ?></textarea>
+    		<textarea id="profile_details_tsw_adminnotes" 
+				name="profile_details_tsw_adminnotes" 
+				cols="30" 
+				rows="5"><?php echo trim( wp_kses_post( get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID ))); ?></textarea>
 			</td>
 		</tr>
 		<?php 
@@ -147,7 +149,7 @@ function profile_details_tsw_save_profile_info( $user_id ) {
 		return false;
 	if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
 		$submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_extra_profile_nonce'] ));
-		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' ) ) { 
+		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' )) { 
 			exit("No funny business please"); 
 		}
 	endif;
@@ -189,7 +191,7 @@ function profile_details_tsw_edit_user_profile_details_section( $user ) {
 	?>
 	
 	<div id="profile-details-type">
-	<h2><?php esc_html_e( 'Profile Details Type' ); ?></h2>
+	<h2><?php esc_html_e( 'Profile Details Type', 'profile-details-tsw' ); ?></h2>
 
 	<table class="form-table"><tbody>
 		<tr>
@@ -224,7 +226,6 @@ function profile_details_tsw_edit_user_profile_details_section( $user ) {
 <?php 
 }
 
-
 /** PH5
  * Saves the term selected on the edit user/profile page in the admin. This function is triggered when the page
  * is updated.  We just grab the posted data and use wp_set_object_terms() to save it.
@@ -239,7 +240,7 @@ function profile_details_tsw_save_user_profile_details_terms( $user_id ) {
 	   && current_user_can( $tax->cap->assign_terms ) )
 		return false;
 
-	$term = esc_attr( $_POST['profile_details'] );
+	$term = esc_attr( wp_unslash( $_POST['profile_details'] ) );
 
 	/* Sets the terms (we're just using a single term) for the user. */
 	wp_set_object_terms( $user_id, array( $term ), 'profile_details', false);

@@ -28,8 +28,8 @@ function profile_details_tsw_tableform_dropdown()
     $html = ''; $sort_by = 'user_registered'; $order_is = 'ASC';
 
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ));
-        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' ) ) { 
+        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ) );
+        if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' )){ 
             exit("No funny business please"); 
         }
 
@@ -136,8 +136,8 @@ function profile_details_tsw_shortcode_table($atts, $content = null)
         
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
         $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ));
-        if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' ) ) { 
-            exit("No funny business please"); 
+        if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' )){ 
+            exit("No funny business please line 140"); 
         }
     endif;
 
@@ -385,7 +385,7 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
       // reset query
     $wp_user_query = ''; $wp_user_query = null;
     $users         = ''; $users         = null;
-    $vieu          = ''; 
+    $vieu          = ''; $order_by = $order_is = '';
     // Avatar size in grid view TODO: option?
     $sz            = absint(52);  
     $contact_privi = profile_details_tsw_contact_privi();
@@ -416,12 +416,11 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
             echo    '</div>';
 
             // pdtsw_gridfrm_nonce
-            if ( wp_unslash( $_SERVER["REQUEST_METHOD"] ) == "POST"):
-
+            if( $_SERVER["REQUEST_METHOD"] == "POST"):
                 if( isset( $_REQUEST['pdtsw_gridfrm_nonce'] ) 
-                && !wp_verify_nonce( sanitize_key( wp_unslash( 
+                && !wp_verify_nonce( esc_attr( wp_unslash( 
                 $_REQUEST['pdtsw_gridfrm_nonce'] ) ), "pdtsw_gridfrm_nonce" ) ) {
-                    exit( "Please try again." );
+                    exit( "Please try again. Line 424" );
                 }
             endif;
 
@@ -492,7 +491,7 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
                         . esc_html($user->display_name) . '</figcpation>
                     </figure></button>
                     <input type="hidden" 
-                        value="'. wp_create_nonce( 'pdtsw_author_nonce' ) .'" 
+                        value="'. esc_attr( wp_create_nonce( 'pdtsw_author_nonce' )) .'" 
                         name="pdtsw_author_nonce">
                     </form>
                     <span role="heading" aria-level="2" class="screen-reader-text" 
