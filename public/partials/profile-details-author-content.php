@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 /**
  * Rendering for Author page
  *
- * @since  1.0.4
+ * @since  1.0.5
  * @uses   shortcode [profile_details_profile]
  * @param  string $meta       Gets author meta using custom function of this plugin
  * @param  string $profile_id ID of author gotten from url $_GET method
@@ -26,7 +26,8 @@ function profile_details_tsw_render_author_page($att='', $content=null)
     if( ! is_page() || !function_exists('pdtswget_author_meta') ) 
         return;
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_author_nonce'] ) );
+        $submitted_value = esc_attr( wp_unslash( sanitize_key( 
+            $_REQUEST['pdtsw_author_nonce'] ) ) );
 
         if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_author_nonce' )){ 
             exit("No security nonce found. Line 30"); 
