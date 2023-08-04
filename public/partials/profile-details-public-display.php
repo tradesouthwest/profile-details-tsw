@@ -422,8 +422,7 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
 
             // pdtsw_gridfrm_nonce
             if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-            $submitted_value = esc_attr( wp_unslash( sanitize_text_field( 
-                $_REQUEST['pdtsw_gridfrm_nonce'] ) ) );
+            $submitted_value = wp_unslash( sanitize_text_field( $_REQUEST['pdtsw_gridfrm_nonce'] ));
 
             if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_gridfrm_nonce' ) ) { 
                 exit( "Please try again. Line 424" );
