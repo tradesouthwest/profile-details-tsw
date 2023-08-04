@@ -31,4 +31,4 @@ Q.: Can I change the listing style?
 A.: If you know CSS then you can use any CSS editor to add a selector in your Customizer or and other stylesheet. Using the Inspector on your browser it is easy to look up the selector name.
 
 ## Notes
-
+![Screenshot](https://plugins.classicpress-themes.com/wp-content/screenshotpdtsw.png)
