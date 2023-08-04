@@ -148,9 +148,10 @@ function profile_details_tsw_save_profile_info( $user_id ) {
 	if( !current_user_can( 'edit_user', absint( $user_id ) ) )
 		return false;
 	if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-		$submitted_value = esc_url_raw( wp_unslash( $_REQUEST['pdtsw_extra_profile_nonce'] ) );
+		$submitted_value = esc_url_raw( wp_unslash( sanitize_text_field( 
+			$_REQUEST['pdtsw_extra_profile_nonce'] ) ) );
 		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' )) { 
-			exit("No funny business please. Line 153"); 
+			exit("No funny business please. Line 150"); 
 		}
 	endif;
 
