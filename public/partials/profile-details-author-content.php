@@ -25,10 +25,13 @@ function profile_details_tsw_render_author_page($att='', $content=null)
 {
     if( ! is_page() || !function_exists('pdtswget_author_meta') ) 
         return;
-    if ( ! wp_verify_nonce( sanitize_key( 
-        $_POST['pdtsw_author_nonce'] ), 'pdtsw_author_nonce' ) ) {
-        return;
-    }
+    if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_author_nonce'] ) );
+
+        if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_author_nonce' )){ 
+            exit("No security nonce found. Line 30"); 
+        }
+    endif;
 
     $profile_id  = sanitize_text_field( wp_unslash( $_REQUEST['profile_id'] ) );
     $disply_name = pdtswget_author_meta('display_name', absint( $profile_id ) );
