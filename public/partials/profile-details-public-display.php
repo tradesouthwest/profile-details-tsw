@@ -29,9 +29,11 @@ function profile_details_tsw_tableform_dropdown()
     $html = ''; $sort_by = 'user_registered'; $order_is = 'ASC';
 
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ) );
+        $submitted_value = esc_attr( wp_unslash( sanitize_key( 
+		$_REQUEST['pdtsw_frm_nonce'] ) ) );
+	    
         if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' )){ 
-            exit("No funny business please"); 
+            exit("No funny business please. Line 31"); 
         }
 
     $sort_by  = ( !isset( $_POST['pdtsw_sortform_dropdown'] ) ) 
@@ -136,7 +138,9 @@ function profile_details_tsw_shortcode_table($atts, $content = null)
         * ************************** */
         
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_frm_nonce'] ));
+        $submitted_value = esc_attr( wp_unslash( sanitize_key( 
+		$_REQUEST['pdtsw_frm_nonce'] ) ) );
+	    
         if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' )){ 
             exit("No funny business please line 140"); 
         }
@@ -417,12 +421,13 @@ function profile_details_tsw_shortcode_grid($atts = null, $content = null)
             echo    '</div>';
 
             // pdtsw_gridfrm_nonce
-            if( $_SERVER["REQUEST_METHOD"] == "POST"):
-                if( isset( $_REQUEST['pdtsw_gridfrm_nonce'] ) 
-                && !wp_verify_nonce( esc_attr( wp_unslash( 
-                $_REQUEST['pdtsw_gridfrm_nonce'] ) ), "pdtsw_gridfrm_nonce" ) ) {
-                    exit( "Please try again. Line 424" );
-                }
+            if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
+            $submitted_value = esc_attr( wp_unslash( sanitize_text_field( 
+                $_REQUEST['pdtsw_gridfrm_nonce'] ) ) );
+
+            if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_gridfrm_nonce' ) ) { 
+                exit( "Please try again. Line 424" );
+            }
             endif;
 
             /* only one post will be set 
