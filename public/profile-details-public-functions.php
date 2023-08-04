@@ -147,13 +147,11 @@ function profile_details_tsw_save_profile_info( $user_id ) {
 
 	if( !current_user_can( 'edit_user', absint( $user_id ) ) )
 		return false;
-	if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-		$submitted_value = esc_url_raw( wp_unslash( sanitize_key( 
-			$_REQUEST['pdtsw_extra_profile_nonce'] ) ) );
-		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' )) { 
-			exit("No funny business please. Line 150"); 
-		}
-	endif;
+	if ( !wp_verify_nonce( sanitize_text_field( wp_unslash( 
+		$_REQUEST['pdtsw_extra_profile_nonce'] ) ),
+			 'pdtsw_extra_profile_nonce' ) ) {
+		exit("No funny business please. Line 150"); 
+	}
 
 	update_user_meta( $user_id, 'profile_details_tsw_bio', 
 	    sanitize_text_field( wp_unslash( $_POST['profile_details_tsw_bio'] ) ) );
@@ -242,8 +240,9 @@ function profile_details_tsw_save_user_profile_details_terms( $user_id ) {
 	   && current_user_can( $tax->cap->assign_terms ) )
 		return false;
 
-	$term = esc_attr( wp_unslash( sanitize_text_field( $_POST['profile_details'] ) ) ); //phpcs:ignore WordPress.Security.NonceVerification.Missing
-
+	$term = wp_unslash( sanitize_text_field( $_POST['profile_details'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Missing
+	$term = esc_attr( $term );  // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+	
 	/* Sets the terms (we're just using a single term) for the user. */
 	wp_set_object_terms( $user_id, array( $term ), 'profile_details', false);
 
