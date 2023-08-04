@@ -15,10 +15,11 @@ function profile_details_tsw_sortform_dropdown_categories()
     $allowed_roles = array('editor', 'administrator', $mediator);
 
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        // uses pdtsw_catsort_nonce">
-        $submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_catsort_nonce'] ));
+        // uses pdtsw_catsort_nonce
+        $submitted_value = esc_attr( wp_unslash( sanitize_text_field( 
+            $_REQUEST['pdtsw_catsort_nonce'] ) ) );
         if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_catsort_nonce' ) ) { 
-            exit("No funny business please"); 
+            exit("No funny business please. Line 17"); 
         }
     $cattosort    = ( isset( $_POST['profile_sortform_catview'] ) ) 
                   ? sanitize_title_with_dashes( wp_unslash( 
@@ -44,8 +45,8 @@ function profile_details_tsw_sortform_dropdown_categories()
     <tr>
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
-            action="'.htmlspecialchars( esc_url( 
-            wp_unslash( $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
+            action="'. esc_url_raw( wp_unslash( sanitize_text_field( 
+                $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
@@ -154,9 +155,9 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
             <tbody class="pdtsw_sortable">';
     
     if(isset( $_REQUEST['profile_sortform_catview'] ) ) :  
-        $verify = wp_verify_nonce( wp_unslash( $_REQUEST['pdtsw_catsort_nonce'] ), 
-                    'pdtsw_catsort_nonce'); 
-        if ( !$verify ) { exit("Nonce not found for category"); }
+        $verify = wp_verify_nonce( wp_unslash( sanitize_key( 
+            $_REQUEST['pdtsw_catsort_nonce'] ) ), 'pdtsw_catsort_nonce' ); 
+        if ( !$verify ) { exit("Nonce not found for category. Line 160"); }
     endif;
     $cattosort  = ( isset( $_REQUEST['profile_sortform_catview'] ) && 
                    !empty( $_REQUEST['profile_sortform_catview'] ) ) 
