@@ -6,12 +6,13 @@
  *
  * @since      1.0.5
  * @package    Profile_Details
- * @subpackage Profile_Details/public/partials/profile-details-public-display
+ * @subpackage Profile_Details/public/partials
  * 
- * @uses Each view (grid, table) has its own dropdown search function. 
- * ======== !!! ========
- * Do not mix up the two
- * =====================
+ * ======== !!! ======== !!! ===========
+ * @uses Each view (grid, table) 
+ * has its own dropdown search function. 
+ *       DO NOT MIX THE TWO UP
+ * =====================================
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
