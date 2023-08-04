@@ -9,7 +9,7 @@
  * @since      1.0.0
  *
  * @package    Profile_Details
- * @subpackage Profile_Details/public/partials
+ * @subpackage Profile_Details/public
  */
 
 // PH2
