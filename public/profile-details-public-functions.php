@@ -6,7 +6,7 @@
  * This file is used to markup the private-facing aspects of the user profile edits.
  *
  * @link       https://tradesouthwest.com
- * @since      1.0.0
+ * @since      1.0.5
  *
  * @package    Profile_Details
  * @subpackage Profile_Details/public
@@ -127,7 +127,7 @@ function profile_details_tsw_extra_profile_info( $user ) {
     		<textarea id="profile_details_tsw_adminnotes" 
 				name="profile_details_tsw_adminnotes" 
 				cols="30" 
-				rows="5"><?php echo trim( wp_kses_post( get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID ))); ?></textarea>
+				rows="5"><?php echo esc_textarea( get_the_author_meta( 'profile_details_tsw_adminnotes', $user->ID ) ); ?></textarea>
 			</td>
 		</tr>
 		<?php 
@@ -148,9 +148,9 @@ function profile_details_tsw_save_profile_info( $user_id ) {
 	if( !current_user_can( 'edit_user', absint( $user_id ) ) )
 		return false;
 	if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-		$submitted_value = esc_attr( wp_unslash( $_REQUEST['pdtsw_extra_profile_nonce'] ));
+		$submitted_value = esc_url_raw( wp_unslash( $_REQUEST['pdtsw_extra_profile_nonce'] ) );
 		if ( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_extra_profile_nonce' )) { 
-			exit("No funny business please"); 
+			exit("No funny business please. Line 153"); 
 		}
 	endif;
 
@@ -227,8 +227,9 @@ function profile_details_tsw_edit_user_profile_details_section( $user ) {
 }
 
 /** PH5
- * Saves the term selected on the edit user/profile page in the admin. This function is triggered when the page
- * is updated.  We just grab the posted data and use wp_set_object_terms() to save it.
+ * Saves the term selected on the edit user/profile page in the admin. 
+ * This function is triggered when the page is updated. 
+ * We just grab the posted data and use wp_set_object_terms() to save it.
  *
  * @param int $user_id The ID of the user to save the terms for.
  */
@@ -240,7 +241,7 @@ function profile_details_tsw_save_user_profile_details_terms( $user_id ) {
 	   && current_user_can( $tax->cap->assign_terms ) )
 		return false;
 
-	$term = esc_attr( wp_unslash( $_POST['profile_details'] ) );
+	$term = esc_attr( wp_unslash( sanitize_text_field( $_POST['profile_details'] ) ) ); //phpcs:ignore WordPress.Security.NonceVerification.Missing
 
 	/* Sets the terms (we're just using a single term) for the user. */
 	wp_set_object_terms( $user_id, array( $term ), 'profile_details', false);
