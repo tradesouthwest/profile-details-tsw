@@ -243,9 +243,9 @@ function profile_details_tsw_save_user_profile_details_terms( $user_id ) {
 		return false;
 		// validate pdtsw_details_nonce
 		$submitted_value = esc_attr( wp_unslash( sanitize_key( 
-			$_REQUEST['pdtsw_details_nonce'] ) ) );
+			$_REQUEST['pdtsw_details_nonce'] ) ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_details_nonce' )){ 
-		exit("No funny business please. Line 31"); 
+		exit("No funny business please. Line 241"); 
 	}
 	
 	$term = sanitize_text_field( wp_unslash( $_POST['profile_details'] ) );
