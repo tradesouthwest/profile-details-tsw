@@ -2,7 +2,7 @@
 /** C1
  * Dropdown sortable query for table view
  *
- * @since 1.0.4 
+ * @since 1.0.5
  * @subpackage public/partials/profile-details-category
  * @return HTML 
  */
