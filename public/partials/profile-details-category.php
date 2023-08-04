@@ -121,7 +121,9 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
     $sz             = "32";  // Avatar size in table view
     $order_by        = 'last_name'; 
     //$order_is        = 'ASC';
-
+    $vieu           = (empty ( get_option('profile_details_tsw')['profile_details_tsw_viewlink']))
+                    ? 'view ' : get_option('profile_details_tsw')['profile_details_tsw_viewlink'];
+    
     ob_start();
     echo 
     '<section class="profiletsw-section">
