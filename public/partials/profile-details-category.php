@@ -18,7 +18,7 @@ function profile_details_tsw_sortform_dropdown_categories()
        if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
         // uses pdtsw_catsort_nonce
         $submitted_value = esc_attr( 
-            wp_unslash( sanitize_key( $_REQUEST['pdtsw_catsort_nonce'] ) ) );
+            wp_unslash( sanitize_key( $_REQUEST['pdtsw_catsort_nonce'] ) ) ); //phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
         if ( !wp_verify_nonce( esc_attr( $submitted_value ), 
             'pdtsw_catsort_nonce' ) ) { 
@@ -49,7 +49,7 @@ function profile_details_tsw_sortform_dropdown_categories()
     <tr>
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
-        action="'. wp_unslash( sanitize_key( esc_url_raw( $_SERVER["REQUEST_URI"] ) ) ) . '">'; 
+        action="'. wp_unslash( sanitize_key( esc_url_raw( $_SERVER["REQUEST_URI"] ) ) ) . '">';  //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
@@ -266,4 +266,4 @@ function profile_details_tsw_shortcode_category($atts, $content = null)
         $output = ob_get_clean();
         
             return $output;
-}
+} 
