@@ -29,8 +29,8 @@ function profile_details_tsw_tableform_dropdown()
     $html = ''; $sort_by = 'user_registered'; $order_is = 'ASC';
 
     if( $_SERVER["REQUEST_METHOD"] == "POST" ) :
-        $submitted_value = esc_attr( wp_unslash( sanitize_key( 
-		$_REQUEST['pdtsw_frm_nonce'] ) ) );
+    
+    $submitted_value = wp_unslash( sanitize_key( $_REQUEST['pdtsw_frm_nonce'] ));
 	    
         if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_frm_nonce' )){ 
             exit("No funny business please. Line 31"); 
