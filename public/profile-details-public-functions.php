@@ -217,7 +217,9 @@ function profile_details_tsw_edit_user_profile_details_section( $user ) {
 		else {
 			esc_html_e( 'Profile details unavailable.', 'profile-details-tsw' );
 		} ?>
-		    </td>
+		    <input type="hidden" 
+            		value="<?php echo esc_attr( wp_create_nonce( 'pdtsw_details_nonce' )); ?>" 
+            		name="pdtsw_details_nonce"></td>
 		</tr>
 	</tbody></table>
 
@@ -239,9 +241,14 @@ function profile_details_tsw_save_user_profile_details_terms( $user_id ) {
 	if ( !current_user_can( 'edit_user', $user_id )
 	   && current_user_can( $tax->cap->assign_terms ) )
 		return false;
-
-	$term = wp_unslash( sanitize_text_field( $_POST['profile_details'] ) ); //phpcs:ignore WordPress.Security.NonceVerification.Missing
-	$term = esc_attr( $term );  // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+		// validate pdtsw_details_nonce
+		$submitted_value = esc_attr( wp_unslash( sanitize_key( 
+			$_REQUEST['pdtsw_details_nonce'] ) ) );
+	if( !wp_verify_nonce( esc_attr( $submitted_value ), 'pdtsw_details_nonce' )){ 
+		exit("No funny business please. Line 31"); 
+	}
+	
+	$term = sanitize_text_field( wp_unslash( $_POST['profile_details'] ) );
 	
 	/* Sets the terms (we're just using a single term) for the user. */
 	wp_set_object_terms( $user_id, array( $term ), 'profile_details', false);
