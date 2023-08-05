@@ -1,0 +1,700 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Profile Details TSW\n"
+"POT-Creation-Date: 2023-08-05 12:04-0700\n"
+"PO-Revision-Date: 2023-06-27 09:46-0700\n"
+"Last-Translator: \n"
+"Language-Team: Tradesouthwest <support@tradesouthwest.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;esc_html__;esc_html_e;"
+"esc_attr__;esc_attr_e;_x\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-profile-details-tsw-settings.php:84
+msgid "Settings"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:97
+msgid "Text Fields"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:98
+msgid "Add custom name of table titles. Leave blank for none."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:102
+msgid "Row 1"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:103
+msgid "Text for first row. Can be left blank in most cases."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:110
+msgid "Row 2"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:111
+msgid "Text for second row. Person/Member maybe"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:118
+msgid "Row 3"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:119
+msgid "Text for third row. Details/Objective maybe"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:126
+msgid "Row 4"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:127
+msgid "Text for fifth row. Bio/Further maybe"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:134
+msgid "Row 5"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:135
+msgid "Text for fifth row. Website/Forms maybe"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:142
+msgid "Row 6"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:143
+msgid "Text for sixth row. Joined On maybe (Date register defaults)"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:146
+msgid "Joined On"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:150
+msgid "Row 7"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:151
+msgid "Text for seventh row. Contact/Internal Email maybe"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:154
+msgid "EMail Contact"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:158
+msgid "Custom Role Name"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:159
+msgid ""
+"Name of custom role to add. Supervisor/Mediator maybe (Leave blank to "
+"not use custom role.)"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:166
+msgid "Make Contact Private"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:167
+msgid "Check box to NOT show Email field."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:173
+msgid "Select Contact to Display"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:174
+msgid "If Contact shown, select what to display."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:176
+msgid "Email on Hover Only"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:177
+msgid "Email Shown - not recommended"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:178
+msgid "First Name Displayed"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:179
+msgid "Show Nothing in this Field"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:185
+msgid "Display Social"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:186
+msgid ""
+"Check box to SHOW social links in public profiles. Unchecked leaves "
+"admin side fields but not public side."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:192
+msgid "Social Link Action"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:193
+msgid "Check box to make social links active/clickable."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:199
+msgid "Remove Social Links"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:200
+msgid ""
+"Check box to remove ALL social urls from User Panel \n"
+"\t\t\t\t\t\t\t\t\t\tand public profiles."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:217
+msgid "Page Views"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:218
+msgid "Advanced setting for content displayed."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:222
+msgid "Select Page with user PROFILE Shortcode"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:223
+msgid ""
+"shortcode: [profile_details_profile] These pages must be set here so "
+"that internal forms will work correctly."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:229
+msgid "Page with GRID view Shortcode"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:230
+msgid "shortcode: [profile_details_grid]"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:236
+msgid "Page with TABLE view Shortcode"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:237
+msgid "shortcode: [profile_details_table]"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:243
+msgid "Page with CATEGORY view Shortcode"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:244
+msgid "shortcode: [profile_details_category]"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:250
+msgid "Make TABLE view Private"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:251
+msgid "Check box to show person table ONLY to Administrator and Editors."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:257
+msgid "Pagination"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:258
+msgid "How many profiles to show per page."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:261
+msgid "32"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:265
+msgid "Show Extended Info"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:266
+msgid ""
+"Check box to show extended three fields on individual public profile."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:273
+msgid "Only show these roles"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:274
+msgid "Select roles to show on front end. Hold CTRL to select multiple."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:299
+msgid "Text in View Link"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:300
+msgid "Wording inside of link of author grid header."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:303
+msgid "view"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:307
+msgid "Background Color in Grid Heading"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:308
+msgid "Set color for the background in grid view headers."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:315
+msgid "Title Color in Grid Heading"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:316
+msgid "Set color for the title (H6) of each row."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:323
+msgid "Height Adjust Grids"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:324
+msgid ""
+"Adjustment to make grids equal heights in pixels (exclude px, just "
+"numbers). Height will vary depending on theme used and amount of "
+"content."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:331
+msgid "Width Adjust Grids at 780px wide"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:332
+#, php-format
+msgid ""
+"Set to 33.33333336 or 50. If theme is full width try 25. (w/out %sign) "
+"Plugin will add the percent sign."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:339
+msgid "Content Before Grid or Table"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:340
+#: admin/class-profile-details-tsw-settings.php:348
+msgid "Text area for content."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:343
+#: admin/class-profile-details-tsw-settings.php:351
+msgid "HTML and text"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:347
+msgid "Content After Grid or Table"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:357
+msgid "Help"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:358
+msgid "Documentation and Links"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:362
+msgid "Documentation"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:364
+msgid "Read help and instructions."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:368
+msgid "View Documentation"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:369
+msgid "Read plugin documentation"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:381
+msgid "Add or Change Categories"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:385
+msgid "Add/Edit Categories"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:386
+#: admin/class-profile-details-tsw-settings.php:388
+msgid "Profile categories can be edited here"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:392
+msgid "Custom Role Reset"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:393
+msgid ""
+"Only for Debug. Keeps database from loading on page loads (should be "
+"1.)"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:400
+msgid "Getting Started"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:401
+msgid "Instructions to help setup Profile Details TSW plugin."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:590
+msgid ""
+"Due to User information which displays in this plugin TABLE VIEW or "
+"\"list view\" MAY NOT BE USE ON HOME PAGES"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:591
+msgid ""
+"This section describes how to setup the plugin and get it working."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:592
+msgid ""
+"1. Create pages with appropriate names and Add Shortcodes to Pages."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:594
+msgid " To display GRID view:"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:595
+msgid " To display TABLE view:"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:596
+msgid " To display individual&#39;s PROFILES:"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:597
+msgid " To display CATEGORY view:"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:598
+msgid ""
+"2. Optional, add CATEGORY shortcode to page or use widget to display "
+"categories"
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:599
+msgid ""
+"3. Go through settings and add field names and page view preferrences."
+msgstr ""
+
+#: admin/class-profile-details-tsw-settings.php:642
+msgid "Profile Details TSW Plugin Settings"
+msgstr ""
+
+#: admin/partials/profile-details-admin-display.php:51
+msgid "Details"
+msgstr ""
+
+#: admin/partials/profile-details-admin-display.php:76
+#: public/partials/profile-details-author-content.php:66
+#: public/partials/profile-details-category.php:237
+#: public/partials/profile-details-public-display.php:249
+#: public/partials/profile-details-public-display.php:524
+msgid "Not Specified."
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:37
+msgid "Profile Details"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:38
+msgid "Profile Detail"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:39
+msgid "Profile Categories"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:40
+msgid "Search Profile Details"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:41
+msgid "Popular Profile Details"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:42
+msgid "All Profile Details"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:43
+msgid "Edit Profile Detail"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:44
+msgid "Update Profile Detail"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:45
+msgid "Add New Profile Detail Category"
+msgstr ""
+
+#: includes/profile-details-taxonomy.php:46
+msgid "New Profile Detail Name"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:81
+msgid "visit website"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:111
+#: public/profile-details-public-functions.php:84
+msgid "Company"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:113
+msgid "Position"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:115
+#: public/profile-details-public-functions.php:94
+msgid "Location"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:138
+msgid "Media Links"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:149
+msgid "External Media Links"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:155
+#: public/partials/profile-details-author-content.php:161
+#: public/partials/profile-details-author-content.php:168
+#: public/partials/profile-details-author-content.php:174
+#: public/partials/profile-details-author-content.php:181
+msgid "off site link"
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:187
+msgid "Copy paste share link: "
+msgstr ""
+
+#: public/partials/profile-details-author-content.php:188
+msgid "Visit profile for"
+msgstr ""
+
+#: public/partials/profile-details-category.php:53
+#: public/partials/profile-details-public-display.php:66
+#: public/partials/profile-details-public-display.php:85
+#: public/partials/profile-details-public-display.php:348
+#: public/profile-details-public-functions.php:281
+msgid "Sort by "
+msgstr ""
+
+#: public/partials/profile-details-category.php:56
+msgid "Select to Order By"
+msgstr ""
+
+#: public/partials/profile-details-category.php:70
+#: public/partials/profile-details-public-display.php:77
+msgid "Order Ascending "
+msgstr ""
+
+#: public/partials/profile-details-category.php:73
+#: public/partials/profile-details-public-display.php:80
+#: public/partials/profile-details-public-display.php:363
+msgid "Descending "
+msgstr ""
+
+#: public/partials/profile-details-category.php:83
+#: public/partials/profile-details-category.php:84
+msgid "Back to Table View"
+msgstr ""
+
+#: public/partials/profile-details-category.php:86
+#: public/partials/profile-details-category.php:87
+msgid "Back to Profiles View"
+msgstr ""
+
+#: public/partials/profile-details-category.php:155
+msgid "Id#"
+msgstr ""
+
+#: public/partials/profile-details-category.php:247
+msgid "Nothing found"
+msgstr ""
+
+#: public/partials/profile-details-category.php:254
+#: public/partials/profile-details-category.php:255
+msgid "Back to top"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:49
+#: public/partials/profile-details-public-display.php:336
+msgid "Registered Date"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:50
+#: public/partials/profile-details-public-display.php:337
+msgid "Display Name"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:51
+msgid "Login Name"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:52
+#: public/partials/profile-details-public-display.php:338
+msgid "Last Name"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:53
+#: public/partials/profile-details-public-display.php:339
+msgid "First Name"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:54
+msgid "ID#"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:55
+msgid "EMail"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:56
+msgid "Site Link"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:84
+msgid "View by Categories"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:192
+msgid "link"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:199
+msgid "#"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:254
+msgid "edit "
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:264
+msgid ""
+"No profiles found. Try refreshing permalinks or adding new user levels "
+"to the view."
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:270
+msgid "Table viewable only to administrative persons."
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:278
+#: public/partials/profile-details-public-display.php:569
+msgid "pg. "
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:279
+#: public/partials/profile-details-public-display.php:570
+msgid " of "
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:280
+#: public/partials/profile-details-public-display.php:571
+msgid " pgs."
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:286
+msgid "Previous Page"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:291
+msgid "Next Page"
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:360
+msgid "Ascending "
+msgstr ""
+
+#: public/partials/profile-details-public-display.php:602
+msgid "No profiles found."
+msgstr ""
+
+#: public/profile-details-public-functions.php:47
+#: public/profile-details-public-functions.php:51
+msgid "Business URL"
+msgstr ""
+
+#: public/profile-details-public-functions.php:52
+#: public/profile-details-public-functions.php:53
+#: public/profile-details-public-functions.php:54
+msgid "Social Media URL"
+msgstr ""
+
+#: public/profile-details-public-functions.php:55
+msgid "RSS Feed URL"
+msgstr ""
+
+#: public/profile-details-public-functions.php:79
+msgid "Additional Profile Info"
+msgstr ""
+
+#: public/profile-details-public-functions.php:89
+msgid "Group"
+msgstr ""
+
+#: public/profile-details-public-functions.php:99
+msgid "Email"
+msgstr ""
+
+#: public/profile-details-public-functions.php:101
+msgid "Show email address on profile page"
+msgstr ""
+
+#: public/profile-details-public-functions.php:106
+msgid "Additional Capabilities"
+msgstr ""
+
+#: public/profile-details-public-functions.php:113
+msgid "None assigned at this time."
+msgstr ""
+
+#: public/profile-details-public-functions.php:125
+msgid "Internal Notes"
+msgstr ""
+
+#: public/profile-details-public-functions.php:193
+msgid "Profile Details Type"
+msgstr ""
+
+#: public/profile-details-public-functions.php:198
+msgid "Select profile type"
+msgstr ""
+
+#: public/profile-details-public-functions.php:218
+msgid "Profile details unavailable."
+msgstr ""

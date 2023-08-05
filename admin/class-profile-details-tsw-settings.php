@@ -368,13 +368,14 @@ class Profile_Details_Tsw_Template_Settings
 					'value'         => __( 'View Documentation', 'profile-details-tsw' ),
 					'title'	        => __( 'Read plugin documentation', 'profile-details-tsw' )
 				),
+				/* removed for security risk
 				array(
 					'id' 			=> 'profile_details_tsw_debug_mode',
 					'label'			=> __( 'Turn on Share Mode', 'profile-details-tsw' ),
 					'description'	=> __( 'Check box to show a share link at the bottom of profiles. CAUTION gives out id of user.', 'profile-details-tsw' ),
 					'type'			=> 'checkbox',
 					'default'		=> 'off'
-				),
+				),  */
 				array(
 					'id' 			=> 'profile_details_tsw_cats_link',
 					'label'			=> __( 'Add or Change Categories', 'profile-details-tsw' ),
