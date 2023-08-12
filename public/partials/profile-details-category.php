@@ -26,7 +26,7 @@ function profile_details_tsw_sortform_dropdown_categories()
         }
            
     $cattosort    = ( isset( $_POST['profile_sortform_catview'] ) ) 
-                  ? sanitize_title_with_dashes( wp_unslash( 
+                  ? sanitize_text_field( wp_unslash( 
                             $_POST['profile_sortform_catview'] ) ) 
                   : ''; 
     $orderis      = ( isset( $_POST['pdtsw_catsortform_order'] ) )
@@ -49,7 +49,7 @@ function profile_details_tsw_sortform_dropdown_categories()
     <tr>
         <td>
         <form id="pdtsw-sortform-cats" method="POST" 
-        action="'. wp_unslash( sanitize_key( esc_url_raw( $_SERVER["REQUEST_URI"] ) ) ) . '">';  //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+        action="'. esc_url_raw( $_SERVER["REQUEST_URI"] ) . '">';  //phpcs:ignore WordPress.Security.ValidatedSanitizedInput.MissingUnslash
     $html .= '<label for="pdtsw-sortform-catview">' . esc_html__('Sort by ', 'profile-details-tsw');
     $html .= '<select id="pdtsw-sortform-catview" name="profile_sortform_catview" 
               class="pdtsw-select" onchange="this.form.submit()">
